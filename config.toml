@@ -1,0 +1,82 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Martín Rodriguez"
+theme = "hello-friend-ng"
+
+[author]
+  name = "Martín Rodriguez"
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
+
+  # Subtitle for home
+  homeSubtitle = "Electrical and Computer Engineering"
+
+  # Set disableReadOtherPosts to true in order to hide the links to other posts.
+  disableReadOtherPosts = false
+
+  # Metadata mostly used in document's head
+  description = "Martín Rodriguez's homepage"
+  keywords = "homepage, blog"
+  images = [""]
+
+  # Directory name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+
+  # Default theme "light" or "dark"
+  defaultTheme = "dark"
+  themeColor = "#181a1b"
+
+  # Social icons
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/mtrpdx"
+
+  [[params.social]]
+    name = "gitlab"
+    url  = "https://gitlab.com/mtrpdx"
+
+  [[params.social]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/in/martintrodriguez"
+
+  [[params.social]]
+    name = "email"
+    url  = "mailto:mtr@pdx.edu"
+
+
+[taxonomies]
+    category = "blog"
+    tag      = "tags"
+
+[languages]
+  [languages.en]
+    title = "Martín Rodriguez"
+    subtitle = "Electrical and Computer Engineering"
+    keywords = ""
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "mtrpdx/"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
+
+  # And you can even create generic menu
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+  [[menu.main]]
+    identifier = "blog"
+    name       = "Blog"
+    url        = "/posts"
+  [[menu.main]]
+    identifier = "reading"
+    name       = "Reading List"
+    url        = "/reading"
