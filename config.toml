@@ -47,6 +47,8 @@ theme = "hello-friend-ng"
     name = "email"
     url  = "mailto:mtr@pdx.edu"
 
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
 
 [taxonomies]
     category = "blog"
@@ -58,6 +60,7 @@ theme = "hello-friend-ng"
     subtitle = "Electrical and Computer Engineering"
     keywords = ""
     readOtherPosts = "Read other posts"
+    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
     [languages.en.params.logo]
       logoText = "mtrpdx/"
