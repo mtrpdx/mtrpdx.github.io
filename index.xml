@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Martín Rodriguez</title>
+    <link>/</link>
+    <description>Recent content on Martín Rodriguez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 10 May 2020 17:00:52 -0700</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reading List</title>
+      <link>/reading/</link>
+      <pubDate>Sun, 10 May 2020 17:00:52 -0700</pubDate>
+      
+      <guid>/reading/</guid>
+      <description>2020 Joseph Y. Halpern - Actual Causality
+The Philosophy of Computer Science</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Sun, 10 May 2020 16:55:57 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Martín Rodriguez is a musician, electrical engineer, and software developer currently living in Portland, OR. This is a picture of Martín as an egg.
+He received his Bachelor of Science in Electrical Engineering from Portland State University in 2019.
+You can view his CV below.
+Martín&amp;rsquo;s CV</description>
+    </item>
+    
+  </channel>
+</rss>
