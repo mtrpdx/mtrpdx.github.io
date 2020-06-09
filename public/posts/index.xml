@@ -1,0 +1,37 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Martín Rodriguez</title>
+        <link>/posts/</link>
+        <description>Recent content in Posts on Martín Rodriguez</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Tue, 28 Apr 2020 18:44:11 -0700</lastBuildDate>
+        <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Developing Music Apps for Samsung Active 2 Watch</title>
+            <link>/posts/2020/04/developing-music-apps-for-samsung-active-2-watch/</link>
+            <pubDate>Tue, 28 Apr 2020 18:44:11 -0700</pubDate>
+            
+            <guid>/posts/2020/04/developing-music-apps-for-samsung-active-2-watch/</guid>
+            <description>My housemate was gifted a Samsung Active 2 Watch for her birthday. She wasn&amp;rsquo;t too thrilled about it, and I knew it had an accelerometer, so I asked if I could play around with it. I started thinking about using it for MIDI aftertouch effects using the accelerometer. I searched the Samsung app store to see if there were any existing apps with similar features. I discovered that the number of apps currently available was quite small, and unsurprisingly, there were no music-related apps whatsoever.</description>
+            <content type="html"><![CDATA[<p>My housemate was gifted a Samsung Active 2 Watch for her birthday.
+She wasn&rsquo;t too thrilled about it, and I knew it had an accelerometer, so I asked if I could play around with it.
+I started thinking about using it for MIDI aftertouch effects using the accelerometer.
+I searched the Samsung app store to see if there were any existing apps with similar features.
+I discovered that the number of apps currently available was quite small, and unsurprisingly,
+there were no music-related apps whatsoever. Most items in the store were either watch face skins or
+fitness trackers.</p>
+<p>My first step was to download Tizen Studio from Samsung and install it on my iMac. The installation was fairly painless.
+Ideally, my goal was to create a native app for the watch, written in C++, to connect directly to the computer to transfer MIDI
+information via bluetooth, without the need to connect to a separate phone app. After some troubleshooting (sometimes the watch
+would skip asking for permissions, making it impossible to connect), I was able to connect and load the first template app, &ldquo;Hello Tizen&rdquo;
+onto the watch. The next step is to figure out how to make different UI elements to display relevent info and for debug purposes.</p>
+<p>Once I become more familiar with this development environment I may write a tutorial as a future post so that others don&rsquo;t have to struggle to find answers like I did.</p>
+<p>To be continued&hellip;</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
