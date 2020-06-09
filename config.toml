@@ -45,7 +45,7 @@ theme = "hello-friend-ng"
 
   [[params.social]]
     name = "email"
-    url  = "mailto:mtr@pdx.edu"
+    url  = "mailto:mtrpdx@gmail.com"
 
 [permalinks]
   posts = "/posts/:year/:month/:title/"
