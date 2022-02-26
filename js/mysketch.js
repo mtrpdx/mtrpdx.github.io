@@ -15,7 +15,7 @@ function setup() {
 function draw() {
 
   // put drawing code here
-    strokeWeight(1);
+    strokeWeight(4);
     stroke(154);
     let a = 0.0;
     let inc = TWO_PI / 25.0;
