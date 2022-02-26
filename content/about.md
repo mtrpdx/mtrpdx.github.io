@@ -9,6 +9,8 @@ This is a picture of Martín as an egg.
 
 He received his Bachelor of Science in Electrical Engineering from Portland State University in 2019.
 
+He is working on a Master of Engineering in Electrical Engineering with a focus on Signal Processing and Machine Learning, to be completed in Spring 2023.
+
 You can view his CV below.  
 
 [Martín's CV](/mtr_cv.pdf)
