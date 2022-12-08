@@ -13,7 +13,7 @@ theme = "hello-friend-ng"
   dateformNumTime = "2006-01-02 15:04 -0700"
 
   # Subtitle for home
-  homeSubtitle = "Electrical and Computer Engineering"
+  homeSubtitle = "Signal Processing and Machine Learning"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -76,9 +76,9 @@ theme = "hello-friend-ng"
     name       = "About"
     url        = "/about"
   [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "/posts"
+    identifier = "projects"
+    name       = "Projects"
+    url        = "/projects"
   [[menu.main]]
     identifier = "reading"
     name       = "Reading List"
