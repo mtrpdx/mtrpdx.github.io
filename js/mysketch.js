@@ -18,7 +18,7 @@ function draw() {
     strokeWeight(4);
     stroke(154);
     let a = 0.0;
-    let inc = TWO_PI / 24.0;
+    let inc = TWO_PI / 48.0;
     for (let i = 0; i < 48; i=i+2) {
       line(i * 4.8, 110, i *4.8, 110 + sin(a) * 80.0);
       a = a + inc;
