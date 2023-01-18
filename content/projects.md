@@ -11,3 +11,12 @@ draft: false
 
 ### EE 513: Intro to Image Processing Final Project
 [Image sorting and sequencing using Canny edge detection and Hough transforms](/ee513_report.pdf)
+
+## Spring 2022
+
+### EE 510: Machine Learning Theory & Algorithms
+[Titanic mortality using ridge regression](/mp01.pdf)
+
+[Car insurance claim prediction using XGBoost](/mp02.pdf)
+
+[Japan stock market prediction using CatBoost](/mp03.pdf)
