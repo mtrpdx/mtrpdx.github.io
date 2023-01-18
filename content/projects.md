@@ -14,7 +14,7 @@ draft: false
 
 ## Spring 2022
 
-### EE 510: Machine Learning Theory & Algorithms
+### EE 510: Machine Learning Theory & Algorithms Mini-Projects
 [Titanic mortality using ridge regression](/mp01.pdf)
 
 [Car insurance claim prediction using XGBoost](/mp02.pdf)
