@@ -1,0 +1,9 @@
+#+title: Reading List
+#+options: \n:t
+
+* 2024
+Franco 'Bifo' Berardi - Futurability: The Age of Impotence and the Horizon of Possibility
+
+* 2020
+[[https://www.cs.cornell.edu/home/halpern/papers/causalitybook-ch1-3.html][Joseph Y. Halpern - Actual Causality]]
+[[https://plato.stanford.edu/entries/computer-science/][The Philosophy of Computer Science]]

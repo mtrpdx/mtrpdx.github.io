@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       2599fd68-abbe-4667-995a-4d370ccb5c48
+:END:
+#+title: About Me
+#+options: \n:t
+
+# #+ATTR_HTML: :width 40
+# #+ATTR_HTML: :style border-radius: 8px;
+
+#+ATTR_HTML: :align left width="200" title="Martín as an egg"
+#+ATTR_ORG: :align center
+[[file:~/Projects/mtrpdx.github.io/assets/img/mtr_egg.png][./mtr_egg.png]]
+
+* Martín Rodriguez is a musician, visual artist, electrical engineer, and software developer currently living in Portland, OR.
+
+This is a picture of Martín as an egg.
+
+He received his Bachelor of Science in Electrical Engineering from Portland State University in 2019.
+
+He is working on a Master of Science in Electrical Engineering with a focus on Signal Processing and Machine Learning from Portland State University, to be completed early 2024.
+
+You can view his CV below.
+
+[[file:~/Projects/mtrpdx.github.io/assets/pdf/mtr_resume.pdf][Martín’s CV]]

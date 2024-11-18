@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-emacs -Q --script build-site.el
+CI=${CI:-true} emacs -Q --batch -l ./build-site.el --funcall mtr/build-site

@@ -1,0 +1,13 @@
+#+title: Projects
+#+options: \n:t
+
+* Fall 2022
+** EE 522: Discrete Time Processing Final Project
+[[file:~/Projects/mtrpdx.github.io/assets/pdf/ee522_report.pdf][Real-time tempo detection with harmonic-percussive source separation via median filtering]]
+** EE 513: Intro to Image Processing Final Project
+[[file:~/Projects/mtrpdx.github.io/assets/pdf/ee513_report.pdf][Image sorting and sequencing using Canny edge detection and Hough transforms]]
+* Spring 2022
+** EE 510: Machine Learning Theory & Algorithms Mini-Projects
+[[file:~/Projects/mtrpdx.github.io/assets/pdf/mp01.pdf][Titanic mortality using ridge regression]]
+[[file:~/Projects/mtrpdx.github.io/assets/pdf/mp02.pdf][Car insurance claim prediction using XGBoost]]
+[[file:~/Projects/mtrpdx.github.io/assets/pdf/mp03.pdf][Japan stock market prediction using CatBoost]]

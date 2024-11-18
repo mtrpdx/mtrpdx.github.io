@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/Users/teen/Projects/mtrpdx.github.io",
+	"sourceRoot": "/Users/teen/Projects/mtrpdx.github.io/old",
 	"sources": [
 		"themes/hello-friend-ng/assets/scss/main.scss",
 		"themes/hello-friend-ng/assets/scss/_normalize.scss",

@@ -7,7 +7,7 @@
 ;; Created: May 03, 2024
 ;; Modified: May 03, 2024
 ;; Version: 0.0.1
-;; Keywords: abbrev bib c calendar comm convenience data docs emulations extensions faces files frames games hardware help hypermedia i18n internal languages lisp local maint mail matching mouse multimedia news outlines processes terminals tex tools unix vc wp
+;; Keywords: website
 ;; Homepage: https://github.com/mtrpdx/mtrpdx.github.io
 ;; Package-Requires: ((emacs "24.4"))
 ;;
@@ -63,22 +63,50 @@
 
 
 ;; Customize the HTML output
-;; (setq org-html-validation-link nil
-;;       org-html-head-include-scripts nil
-;;       org-html-head-include-default-style nil
-;;       org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />")
+(setq org-html-validation-link nil
+      org-html-head-include-scripts nil
+      org-html-head-include-default-style nil
+      org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />")
+      ;; org-html-head "<link rel=\"stylesheet\" href=\"assets/css/style.css\" />")
 
+;; (defun mtr/site-header ()
+;;   (list `(header (@ (class "site-header"))
+;;                  (div (@ (class "container"))
+;;                       (div (@ (class "site-title"))
+;;                            (img (@ (class "logo")
+;;                                    (src ,(concat mtr/site-url "/img/mtr_egg.png"))
+;;                                    (alt "> mtrpdx/")))))
+;;                  (div (@ (class "site-masthead"))
+;;                       (div (@ (class "container"))
+;;                            (div (@ (class "nav-wrapper"))
+;;                                 (ul (@ (class "list list-main"))
+;;                                      (a (@ (class "nav-link") (href "/")) "Home") " ")
+;;                                 (ul (@ (class "list list-secondary"))
+;;                                      (a (@ (class "nav-link") (href "/about/")) "About") " "
+;;                                      (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
+;;                                      (a (@ (class "nav-link") (href "/readinglist/")) "Reading List"))))))))
 (defun mtr/site-header ()
   (list `(header (@ (class "site-header"))
-                 (div (@ (class "container"))
-                      (div (@ (class "site-title"))))
                  (div (@ (class "site-masthead"))
                       (div (@ (class "container"))
                            (nav (@ (class "nav"))
-                                (a (@ (class "nav-link") (href "/")) "Home") " "
-                                (a (@ (class "nav-link") (href "/")) "About") " "
-                                (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
-                                (a (@ (class "nav-link") (href "/readinglist/")) "Reading List")))))))
+                                (div (@ (class "row"))
+                                     (div (@ (class "column"))
+                                          (a (@ (class "nav-link") (href "/")) "> mtrpdx/") " ")
+                                     (div (@ (class "column align-right"))
+                                          (a (@ (class "nav-link") (href "/about/index.html")) "About") " "
+                                          (a (@ (class "nav-link") (href "/projects/index.html")) "Projects") " "
+                                          (a (@ (class "nav-link") (href "/readinglist/index.html")) "Reading List") " "))))))))
+
+;; (defun mtr/site-header ()
+;;   (list `(header (@ (class "site-header"))
+;;                  (div (@ (class "container"))
+;;                       (div (@ (class "site-masthead"))
+;;                         (nav (@ (class "nav"))
+;;                 (a (@ (class "nav-link") (href "/")) "> mtrpdx/") " "))
+;;                 (a (@ (class "nav-link") (href "/about/")) "About") "    |    "
+;;                         (a (@ (class "nav-link") (href "/projects/")) "Projects") "    |    "
+;;                         (a (@ (class "nav-link") (href "/readinglist/")) "Reading List"))))))
 
 (defun mtr/site-footer ()
   (list `(footer (@ (class "site-footer"))
@@ -112,7 +140,6 @@
      (with-current-buffer standard-output
        (vc-git-command t nil nil "rev-parse" "--short" "HEAD")))))
 
-
 (cl-defun mtr/generate-page (title
                              content
                              info
@@ -132,11 +159,86 @@
        (meta (@ (author "mtrpdx - Martin Rodriguez")))
        (meta (@ (name "viewport")
                 (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
-       (link (@ (rel "icon") (type "image/png") (href "/img/favicon.png")))
-       (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/css/site.css"))))
-       ;; Empty string to cause a closing </script> tag
-       "")
-      (body ,@(mtr/site-header))))))
+       (link (@ (rel "icon") (type "image/png") (href ,(concat mtr/site-url "/img/favicon.png"))))
+       (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/css/style.css"))))
+
+       ,(when head-extra head-extra)
+       (title ,(concat title " Martin Rodriguez - mtrpdx")))
+      (body ,@(unless exclude-header
+                (mtr/site-header))
+            (div (@ (class "container"))
+                 (div (@ (class "site-post"))
+                      (h1 (@ (class "site-post-title center"))
+                         ,title)
+                      ,(when publish-date
+                         `(p (@ (class "site-post-meta center")) ,publish-date))
+                      ,(when pre-content pre-content)
+                      (div (@ (id "content"))
+                           ,content)))
+                 ,@(unless exclude-footer
+                     (mtr/site-footer)))))))
+
+(defun mtr/org-html-link (link contents info)
+  "Removes file extension and changes the path into lowercase file:// links."
+  (when (and (string= 'file (org-element-property :type link))
+             (string= "org" (file-name-extension (org-element-property :path link))))
+    (org-element-put-property link :path
+                              (downcase
+                               (file-name-sans-extension
+                                (org-element-property :path link)))))
+
+  (let ((exported-link (org-export-custom-protocol-maybe link contents 'html info)))
+    (cond
+     (exported-link exported-link)
+     ((and (null contents)
+           (not (org-export-inline-image-p link)))
+      (format "<a href=\"%s\">%s</a>"
+              (org-element-property :raw-link link)
+              (org-element-property :raw-link link)))
+     ((string-prefix-p "/" (org-element-property :raw-link link))
+      (format "<a href=\"%s\">%s</a>"
+              (org-element-property :raw-link link)
+              contents))
+     (t (org-export-with-backend 'html link contents info)))))
+
+(defun mtr/make-heading-anchor-name (headline-text)
+  (thread-last headline-text
+               (downcase)
+               (replace-regexp-in-string " " "-")
+               (replace-regexp-in-string "[^[:alnum:]_-]" "")))
+
+(defun mtr/org-html-headline (headline contents info)
+  (let* ((text (org-export-data (org-element-property :title headline) info))
+         (level (org-export-get-relative-level headline info))
+         (level (min 7 (when level (1+ level))))
+         (anchor-name (mtr/make-heading-anchor-name text))
+         (attributes (org-element-property :ATTR_HTML headline))
+         (container (org-element-property :HTML_CONTAINER headline))
+         (container-class (and container (org-element-property :HTML_CONTAINER_CLASS headline))))
+    (when attributes
+      (setq attributes
+            (format " %s" (org-html--make-attribute-string
+                           (org-export-read-attribute 'attr_html `(nil
+                                                                   (attr_html ,(split-string attributes))))))))
+    (concat
+     (when (and container (not (string= "" container)))
+       (format "<%s%s>" container (if container-class (format " class=\"%s\"" container-class) "")))
+     (if (not (org-export-low-level-p headline info))
+         ;; (format "<h%d%s><a id=\"%s\" class=\"anchor\" href=\"#%s\">¶</a>%s</h%d>%s"
+         (format "<h%d%s><a id=\"%s\" class=\"anchor\" href=\"#%s\"></a>%s</h%d>%s"
+                 level
+                 (or attributes "")
+                 anchor-name
+                 anchor-name
+                 text
+                 level
+                 (or contents ""))
+       (concat
+        (when (org-export-first-sibling-p headline info) "<ul>")
+        (format "<li>%s%s</li>" text (or contents ""))
+        (when (org-export-last-sibling-p headline info) "</ul>")))
+     (when (and container (not (string= "" container)))
+       (format "</%s>" (cl-subseq container 0 (cl-search " " container)))))))
 
 (defun mtr/org-html-template (contents info)
   (mtr/generate-page (org-export-data (plist-get info :title) info)
@@ -144,17 +246,11 @@
                     info
                     :publish-date (org-export-data (org-export-get-date info "%B %e, %Y") info)))
 
-
 (org-export-define-derived-backend 'site-html 'html
   :translate-alist
-  '((template . mtr/org-html-template)))
-    ;; (link . dw/org-html-link)
-    ;; (src-block . dw/org-html-src-block)
-    ;; (special-block . dw/org-html-special-block)
-    ;; (headline . dw/org-html-headline))
-  ;; :options-alist
-  ;; '((:video "VIDEO" nil nil)
-  ;;   (:page-type "PAGE-TYPE" nil nil)))
+  '((template . mtr/org-html-template)
+    (link . mtr/org-html-link)
+    (headline . mtr/org-html-headline)))
 
 (defun org-html-publish-to-html (plist filename pub-dir)
   "Publish an org file to HTML, using the FILENAME as the output directory."
@@ -174,6 +270,7 @@
 
 (setq org-publish-use-timestamps-flag t
       org-publish-timestamp-directory "./.org-cache/"
+      org-attach-id-dir "./assets/"
       org-export-with-section-numbers nil
       org-export-use-babel nil
       org-export-with-smart-quotes t
@@ -189,12 +286,47 @@
       org-export-with-toc nil
       make-backup-files nil)
 
+
+;; (defun simendsjo/org-publish-include-attachments (plist)
+;;   "Fix published html for org-attach attached files.
+
+;; - Walks all html files
+;; - Copies attached files it finds to a local .attach folder
+;; - Fixes all src links to point to this new location"
+;;   (let ((pattern (concat "src=\"file://\\(" (regexp-quote org-attach-id-dir) "\\)/\\([^\"]*\\)"))
+;;         (pub-dir (plist-get plist :publishing-directory)))
+;;     (dolist (file (directory-files-recursively pub-dir "\.html$" t))
+;;       (let ((buffer (find-file-noselect file)))
+;;         (with-current-buffer buffer
+;;           (goto-char (point-min))
+;;           (while (re-search-forward pattern nil t)
+;;             (let* ((attach-part (match-string 1))
+;;                    (file-part (match-string 2))
+;;                    (srcfile (f-join attach-part file-part))
+;;                    (dstfile-rel (f-join ".attach" file-part))
+;;                    (dstfile (f-join pub-dir dstfile-rel)))
+;;               ;; Make sure the directory exists as copy/symlink assumes it.
+;;               (let ((dir (file-name-directory dstfile)))
+;;                 (unless (f-directory-p dir)
+;;                   (message "Attachment directory %s missing, creating it" dir)
+;;                   (make-directory dir t)))
+;;               ;; Copy/symlink attachment
+;;               (if IS-WINDOWS
+;;                   (copy-file srcfile dstfile)
+;;                 (make-symbolic-link srcfile dstfile t))
+;;               ;; Replace link to relative file
+;;               ;; I assume the .attach folder is added at the root, and thus add
+;;               ;; the / at the beginning
+;;               (replace-match (concat "src=\"/" dstfile-rel "\"")))))))))
+
+
 ;; Define the publishing project
 (setq org-publish-project-alist
       (list '("mtrpdx:main"
               :base-directory "./content"
               :publishing-directory "./public"
               :publishing-function org-html-publish-to-html
+              :recursive t
               :with-author nil
               :with-creator t
               :with-toc t
@@ -207,9 +339,9 @@
               :recursive t
               :publishing-function org-publish-attachment)
             '("mtrpdx:about"
-              :base-directory "./content"
-              :base-extension "org"
-              :publishing-directory "./public"
+              :base-directory "./content/about"
+              ;; :base-extension "org"
+              :publishing-directory "./public/about"
               :publishing-function org-html-publish-to-html
               :with-author nil
               :with-creator t
@@ -222,7 +354,7 @@
               :with-timestamps nil)
             '("mtrpdx:projects"
               :base-directory "./content/projects"
-              :base-extension "org"
+              ;; :base-extension "org"
               :publishing-directory "./public/projects"
               :publishing-function org-html-publish-to-html
               :with-author nil
@@ -236,7 +368,7 @@
               :with-timestamps nil)
             '("mtrpdx:readinglist"
               :base-directory "./content/readinglist"
-              :base-extension "org"
+              ;; :base-extension "org"
               :publishing-directory "./public/readinglist"
               :publishing-function org-html-publish-to-html
               :with-author nil
@@ -249,12 +381,16 @@
               :time-stamp-file nil
               :with-timestamps nil)))
 
+(defun mtr/build-site ()
+  ;; Generate the site output
+  (interactive)
 
-;; Generate the site output
-(org-publish-remove-all-timestamps)
-(org-publish-all t)
-
-(message "Build complete!")
+  (org-publish-remove-all-timestamps)
+  (org-publish-all (string-equal (or (getenv "FORCE")
+                                     (getenv "CI"))
+                                 "true"))
+  ;; (simendsjo/org-publish-include-attachments '(:publishing-directory "./public"))
+  (message "Build complete!"))
 
 (provide 'build-site)
 ;; ;;; build-site.el ends here
