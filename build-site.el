@@ -324,22 +324,23 @@
 (setq org-publish-project-alist
       (list '("mtrpdx:main"
               :base-directory "./content"
+              :base-extension "org"
               :publishing-directory "./public"
               :publishing-function org-html-publish-to-html
               :with-author nil
               :with-creator t
-              :with-toc t
+              ;; :with-toc t
               :section-numbers nil
               :time-stamp-file nil)
             '("mtrpdx:assets"
               :base-directory "./assets"
               :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"
-              :publishing-directory "./public"
+              :publishing-directory "./public/assets"
               :recursive t
               :publishing-function org-publish-attachment)
             '("mtrpdx:about"
               :base-directory "./content/about"
-              ;; :base-extension "org"
+              :base-extension "org"
               :publishing-directory "./public/about"
               :publishing-function org-html-publish-to-html
               :with-author nil
@@ -347,13 +348,13 @@
               :with-toc nil
               :section-numbers nil
               ;; :auto-sitemap t
-              ;; :sitemap-filename "../about.org"
+              :sitemap-filename "../about.org"
               :with-title nil
               :time-stamp-file nil
               :with-timestamps nil)
             '("mtrpdx:projects"
               :base-directory "./content/projects"
-              ;; :base-extension "org"
+              :base-extension "org"
               :publishing-directory "./public/projects"
               :publishing-function org-html-publish-to-html
               :with-author nil
@@ -361,13 +362,13 @@
               :with-toc nil
               :section-numbers nil
               ;; :auto-sitemap t
-              ;; :sitemap-filename "../projects.org"
+              :sitemap-filename "../projects.org"
               :with-title nil
               :time-stamp-file nil
               :with-timestamps nil)
             '("mtrpdx:readinglist"
               :base-directory "./content/readinglist"
-              ;; :base-extension "org"
+              :base-extension "org"
               :publishing-directory "./public/readinglist"
               :publishing-function org-html-publish-to-html
               :with-author nil
@@ -375,7 +376,7 @@
               :with-toc nil
               :section-numbers nil
               ;; :auto-sitemap t
-              ;; :sitemap-filename "../readinglist.org"
+              :sitemap-filename "../readinglist.org"
               :with-title nil
               :time-stamp-file nil
               :with-timestamps nil)))
