@@ -10,4 +10,4 @@
 ** EE 510: Machine Learning Theory & Algorithms Mini-Projects
 [[file:~/Projects/mtrpdx.github.io/assets/pdf/mp01.pdf][Titanic mortality using ridge regression]]
 [[file:~/Projects/mtrpdx.github.io/assets/pdf/mp02.pdf][Car insurance claim prediction using XGBoost]]
-[[file:~/Projects/mtrpdx.github.io/assets/pdf/mp03.pdf][Japan stock market prediction using CatBoost]]
+[[file:/assets/pdf/mp03.pdf][Japan stock market prediction using CatBoost]]
