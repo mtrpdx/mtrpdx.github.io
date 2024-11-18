@@ -15,6 +15,10 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
+      - name: Setup emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: 27.2
       - name: Load emacs and build site
         run: bash ./build.sh
         
