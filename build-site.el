@@ -94,9 +94,9 @@
                                      (div (@ (class "column"))
                                           (a (@ (class "nav-link") (href "/")) "> mtrpdx/") " ")
                                      (div (@ (class "column align-right"))
-                                          (a (@ (class "nav-link") (href "/about/index.html")) "About") " "
-                                          (a (@ (class "nav-link") (href "/projects/index.html")) "Projects") " "
-                                          (a (@ (class "nav-link") (href "/readinglist/index.html")) "Reading List") " "))))))))
+                                          (a (@ (class "nav-link") (href "/about/")) "About") " "
+                                          (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
+                                          (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "))))))))
 
 ;; (defun mtr/site-header ()
 ;;   (list `(header (@ (class "site-header"))
@@ -159,8 +159,8 @@
        (meta (@ (author "mtrpdx - Martin Rodriguez")))
        (meta (@ (name "viewport")
                 (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
-       (link (@ (rel "icon") (type "image/png") (href ,(concat mtr/site-url "/img/favicon.png"))))
-       (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/css/style.css"))))
+       (link (@ (rel "icon") (type "image/png") (href ,(concat mtr/site-url "/assets/img/favicon.png"))))
+       (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/assets/css/style.css"))))
 
        ,(when head-extra head-extra)
        (title ,(concat title " Martin Rodriguez - mtrpdx")))
