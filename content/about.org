@@ -9,7 +9,7 @@
 
 #+ATTR_HTML: :align left width="200" title="Martín as an egg"
 #+ATTR_ORG: :align center
-[[file:../assets/img/mtr_egg.png][../assets/img/mtr_egg.png]]
+[[file:../assets/img/mtr_egg.png]]
 
 * Martín Rodriguez is a musician, visual artist, electrical engineer, and software developer currently living in Portland, OR.
 

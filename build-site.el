@@ -389,7 +389,7 @@
   (org-publish-all (string-equal (or (getenv "FORCE")
                                      (getenv "CI"))
                                  "true"))
-  (simendsjo/org-publish-include-attachments '(:publishing-directory "./public"))
+  (simendsjo/org-publish-include-attachments '(:publishing-directory "./public/assets"))
   (message "Build complete!"))
 
 (provide 'build-site)
