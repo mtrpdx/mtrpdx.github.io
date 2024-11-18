@@ -59,7 +59,7 @@ jobs:
           args: --verbose --no-progress ./public/**/*.html
 
       - name: Publish generated content to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.6.1
+        uses: JamesIves/github-pages-deploy-action@4.6.9
         with:
           branch: gh-pages
           folder: public
