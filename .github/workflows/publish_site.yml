@@ -28,6 +28,7 @@ jobs:
       url: ${{steps.deployment.outputs.page_url}}
     steps:
       - name: Check out the repository to the runner
+        id: checkout
         uses: actions/checkout@v4
         
       - name: Setup Pages
@@ -35,30 +36,34 @@ jobs:
         uses: actions/configure-pages@v5
         
       - name: Setup emacs
+        id: emacs
         uses: purcell/setup-emacs@master
         with:
           version: 27.2
           
       - name: Load emacs and build site
+        id: build
         run: bash ./build.sh
         
       - name: Upload static files as artifact
-        id: deployment
+        id: artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public/
         
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v4
+
       
       - name: Link Checker
         uses: lycheeverse/lychee-action@v1.0.8
         with:
           args: --verbose --no-progress ./public/**/*.html
 
-      - name: Publish generated content to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: org_publish
-          folder: public
+      # - name: Publish generated content to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@4.1.4
+      #   with:
+      #     branch: gh-pages
+      #     folder: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
