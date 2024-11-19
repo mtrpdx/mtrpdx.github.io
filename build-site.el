@@ -7,7 +7,7 @@
 ;; Created: May 03, 2024
 ;; Modified: May 03, 2024
 ;; Version: 0.0.1
-;; Keywords: website
+;; Keywords: comm
 ;; Homepage: https://github.com/mtrpdx/mtrpdx.github.io
 ;; Package-Requires: ((emacs "24.4"))
 ;;
