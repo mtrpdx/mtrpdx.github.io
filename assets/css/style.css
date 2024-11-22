@@ -582,12 +582,12 @@ h4 {
 }
 
 a {
-  color: #82aaff;
+  color: inherit;
 }
 
 a:hover,
 a:focus {
-  color: #82aaff;
+  color: #fc9797;
 }
 
 .anchor {
@@ -665,13 +665,13 @@ strong {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #fff;
+  color: #fc9797;
   background-color: transparent;
 }
 
 /* Active state gets a caret at the bottom */
 .nav-link.active {
-  color: #fff;
+  color: #fc9797;
   font-weight: bolder;
 }
 

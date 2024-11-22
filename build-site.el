@@ -113,11 +113,11 @@
                  (div (@ (class "container"))
                       (div (@ (class "row"))
                            (div (@ (class "column"))
+                                ;; (div (@ (class "site-footer-line"))
+                                ;;      " · "
+                                ;;      " · "
                                 (div (@ (class "site-footer-line"))
-                                     " · "
-                                     " · "
-                                (div (@ (class "site-footer-line"))
-                                     "© 2024 · mtrpdx"))))))))
+                                     "© 2024 · mtrpdx")))))))
 
 (defun get-article-output-path (org-file pub-dir)
   (let ((article-dir (concat pub-dir
@@ -168,10 +168,10 @@
                 (mtr/site-header))
             (div (@ (class "container"))
                  (div (@ (class "site-post"))
-                      (h1 (@ (class "site-post-title center"))
+                      (h1 (@ (class "site-post-title"))
                          ,title)
                       ,(when publish-date
-                         `(p (@ (class "site-post-meta center")) ,publish-date))
+                         `(p (@ (class "site-post-meta")) ,publish-date))
                       ,(when pre-content pre-content)
                       (div (@ (id "content"))
                            ,content)))
