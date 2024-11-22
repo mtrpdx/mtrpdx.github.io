@@ -58,12 +58,12 @@ jobs:
         with:
           args: --verbose --no-progress ./public/**/*.html
 
-      - name: Publish generated content to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.6.9
-        with:
-          branch: gh-pages
-          folder: public
+      # - name: Publish generated content to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4.6.9
+      #   with:
+      #     branch: gh-pages
+      #     folder: public
 
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
