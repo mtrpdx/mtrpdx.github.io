@@ -7,7 +7,9 @@
 # #+ATTR_HTML: :width 40
 # #+ATTR_HTML: :style border-radius: 8px;
 
-#+ATTR_HTML: :align left width="200" title="Martín as an egg"
+# #+ATTR_HTML: :align left :width 250;margin:0px 8px 8px 0px;
+#+ATTR_HTML: :style float:left;margin:100px 8px 80px 0px;
+#+ATTR_HTML: :alt "Image of Martín as an egg" :title "Martín as an egg"
 #+ATTR_ORG: :align center
 [[file:../assets/img/mtr_egg.png]]
 * Martín Rodriguez
