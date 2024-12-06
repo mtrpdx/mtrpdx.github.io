@@ -729,6 +729,7 @@ strong {
 }
 
 .site-post-title {
+  text-align: center;
   font-size: 2.2rem;
 }
 
@@ -764,6 +765,7 @@ strong {
 
 .site-footer-line {
   margin-bottom: 0.4rem;
+  text-align: center;
 }
 
 .video {

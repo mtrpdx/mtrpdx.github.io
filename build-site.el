@@ -108,11 +108,34 @@
 ;;                         (a (@ (class "nav-link") (href "/projects/")) "Projects") "    |    "
 ;;                         (a (@ (class "nav-link") (href "/readinglist/")) "Reading List"))))))
 
+(defun mtr/link-row ()
+  (list `(div (@ (class "link-row"))
+          (div (@ (class "container") (align "center"))
+       (a (@ (href "https://github.com/mtrpdx"))
+          (img (@ (src ,(concat mtr/site-url "/assets/icons/8666686_github_icon_64.png"))
+                  (style "width: 24px")
+                  (alt "Github link")))) "  "
+        (a (@ (href "https://gitlab.com/mtrpdx"))
+           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666646_gitlab_icon_64.png"))
+                   (style "width: 24px")
+                   (alt "Gitlab link")))) "  "
+        (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
+           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666770_linkedin_social_icon_64.png"))
+                   (style "width: 24px")
+                   (alt "LinkedIn link")))) "  "
+        (a (@ (href "mailto:mtrpdx@gmail.com"))
+           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
+                   (style "width: 24px")
+                   (alt "Email link"))))))))
+
 (defun mtr/site-footer ()
   (list `(footer (@ (class "site-footer"))
                  (div (@ (class "container"))
                       (div (@ (class "row"))
                            (div (@ (class "column"))
+                          ,@(mtr/link-row)))
+                      (div (@ (class "row"))
+                          (div (@ (class "column"))
                                 ;; (div (@ (class "site-footer-line"))
                                 ;;      " · "
                                 ;;      " · "
@@ -172,11 +195,12 @@
                          ,title)
                       ,(when publish-date
                          `(p (@ (class "site-post-meta")) ,publish-date))
+                      (div (@ (a ) (href))
                       ,(when pre-content pre-content)
                       (div (@ (id "content"))
-                           ,content)))
+                           ,content))
                  ,@(unless exclude-footer
-                     (mtr/site-footer)))))))
+                     (mtr/site-footer)))))))))
 
 (defun mtr/org-html-link (link contents info)
   "Removes file extension and changes the path into lowercase file:// links."

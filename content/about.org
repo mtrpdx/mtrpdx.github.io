@@ -10,7 +10,9 @@
 #+ATTR_HTML: :align left width="200" title="Martín as an egg"
 #+ATTR_ORG: :align center
 [[file:../assets/img/mtr_egg.png]]
-* Martín Rodriguez is a recent graduate from Portland State University with an M.Sc. in Electrical and Computer Engineering with a focus on signal processing and machine learning. He received his B.Sc. in 2019 in Electrical and Computer Engineering with a focus on embedded systems, also from Portland State University.
+* Martín Rodriguez
+
+is a recent graduate from Portland State University with an M.Sc. in Electrical and Computer Engineering with a focus on signal processing and machine learning. He received his B.Sc. in 2019 in Electrical and Computer Engineering with a focus on embedded systems, also from Portland State University.
 
 His master's thesis is titled ``[[file:../assets/pdf/rodriguez_thesis.pdf][Applying Positive Unlabeled Learning Techniques and Using the Kullback-Leibler Divergence to Improve Geothermal Surveying Assessments]].''
 
