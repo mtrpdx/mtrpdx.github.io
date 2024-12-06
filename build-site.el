@@ -186,7 +186,7 @@
        (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/assets/css/style.css"))))
 
        ,(when head-extra head-extra)
-       (title ,(concat title " Martin Rodriguez - mtrpdx")))
+       (title ,(concat title " - mtrpdx")))
       (body ,@(unless exclude-header
                 (mtr/site-header))
             (div (@ (class "container"))
