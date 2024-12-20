@@ -424,25 +424,25 @@
               :with-title nil
               :time-stamp-file nil
               :with-timestamps nil)
-            ;; '("mtrpdx:posts"
-            ;;   :base-directory "./content/posts"
-            ;;   :base-extension "org"
-            ;;   :publishing-directory "./public/posts"
-            ;;   :exclude "futurability.org"
-            ;;   :publising-function org-html-publish-to-html
-            ;;   :with-author t
-            ;;   :with-creator t
-            ;;   :with-toc nil
-            ;;   :section-numbers nil
-            ;;   :auto-sitemap t
-            ;;   :sitemap-filename "../posts.org"
-            ;;   :sitemap-title "Posts"
-            ;;   :sitemap-format-entry mtr/format-post-entry
-            ;;   :sitemap-style list
-            ;;   ;; :sitemap-function mtr/post-sitemap
-            ;;   :sitemap-sort-files anti-chronologically
-            ;;   :with-title nil
-            ;;   :with-timestamps t)
+            '("mtrpdx:posts"
+              :base-directory "./content/posts"
+              :base-extension "org"
+              :publishing-directory "./public/posts"
+              :exclude "futurability.org"
+              :publishing-function org-html-publish-to-html
+              :with-author t
+              :with-creator t
+              :with-toc nil
+              :section-numbers nil
+              :auto-sitemap t
+              :sitemap-filename "../posts.org"
+              :sitemap-title "Posts"
+              :sitemap-format-entry mtr/format-post-entry
+              :sitemap-style list
+              ;; :sitemap-function mtr/post-sitemap
+              :sitemap-sort-files anti-chronologically
+              :with-title nil
+              :with-timestamps t)
             '("mtrpdx:projects"
               :base-directory "./content/projects"
               :base-extension "org"
