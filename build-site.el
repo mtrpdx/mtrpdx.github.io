@@ -40,6 +40,22 @@
   (package-install 'use-package))
 (require 'use-package)
 
+(defun use-package-require (name &optional no-require body)
+  (if use-package-expand-minimally
+      (use-package-concat
+       (unless no-require
+         (list (use-package-load-name name)))
+       body)
+    (if no-require
+        body
+      (use-package-with-elapsed-timer
+          (format "Loading package %s" name)
+        `((if (not ,(use-package-load-name name))
+              (display-warning 'use-package
+                               (format "Cannot load %s" ',name)
+                               :error)
+            ,@body))))))
+
 ;; Install dependencies
 (require 'vc-git)
 (require 'ox-publish)
@@ -51,6 +67,14 @@
   :ensure t)
 
 (use-package htmlize
+  :ensure t)
+
+(use-package parsebib
+  :pin "melpa-stable"
+  :ensure t)
+
+(use-package citeproc
+  :pin "melpa-stable"
   :ensure t)
 
 (setq user-full-name "Martin Rodriguez")
@@ -95,6 +119,7 @@
                                           (a (@ (class "nav-link") (href "/")) "> mtrpdx/") " ")
                                      (div (@ (class "column align-right"))
                                           (a (@ (class "nav-link") (href "/about/")) "About") " "
+                                          (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
                                           (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
                                           (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "))))))))
 
@@ -126,7 +151,11 @@
         (a (@ (href "mailto:mtrpdx@gmail.com"))
            (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
                    (style "width: 24px")
-                   (alt "Email link"))))))))
+                   (alt "Email link")))) "  "
+        (a (@ (href "https://soundcloud.com/teensbeans"))
+           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666763_headphones_music_icon_64.png"))
+                   (style "width: 24px")
+                   (alt "Soundcloud link"))))))))
 
 (defun mtr/site-footer ()
   (list `(footer (@ (class "site-footer"))
@@ -310,6 +339,25 @@
       org-export-with-toc nil
       make-backup-files nil)
 
+(defun mtr/format-post-entry (entry style project)
+  "Format posts with author and published data in the index page."
+  (cond ((not (directory-name-p entry))
+         (format "[[file:%s][%s]] - %s · %s"
+                 entry
+                 (org-publish-find-title entry project)
+                 (car (org-publish-find-property entry :author project))
+                 (format-time-string "%B %d, %Y"
+                                     (org-publish-find-date entry project))))
+        ((eq style 'tree) (file-name-nondirectory (directory-file-name entry)))
+        (t entry)))
+
+(defun mtr/post-sitemap (title files)
+  (format "#+title: %s\n\n%s"
+          title
+          (mapconcat (lambda (file)
+                       (format "- %s\n" file))
+                     (cadr files)
+                     "\n")))
 
 (defun simendsjo/org-publish-include-attachments (plist)
   "Fix published html for org-attach attached files.
@@ -376,6 +424,25 @@
               :with-title nil
               :time-stamp-file nil
               :with-timestamps nil)
+            '("mtrpdx:posts"
+              :base-directory "./content/posts"
+              :base-extension "org"
+              :publishing-directory "./public/posts"
+              :exclude "futurability.org"
+              :publising-function org-html-publish-to-html
+              :with-author t
+              :with-creator t
+              :with-toc nil
+              :section-numbers nil
+              :auto-sitemap t
+              :sitemap-filename "../posts.org"
+              :sitemap-title "Posts"
+              :sitemap-format-entry mtr/format-post-entry
+              :sitemap-style list
+              ;; :sitemap-function mtr/post-sitemap
+              :sitemap-sort-files anti-chronologically
+              :with-title nil
+              :with-timestamps t)
             '("mtrpdx:projects"
               :base-directory "./content/projects"
               :base-extension "org"

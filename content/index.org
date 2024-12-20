@@ -1,5 +1,4 @@
 #+title: Martín Rodriguez
-# #+HTML_CLASS: container
 
 #+HTML:<div align=center>
 Signal Processing and Machine Learning

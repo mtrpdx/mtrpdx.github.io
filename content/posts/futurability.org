@@ -1,0 +1,21 @@
+#+title: Futurability
+#+author: Martín Rodriguez
+#+date: [2024-12-11 Wed]
+#+bibliography: futurability.bib
+#+cite_export: csl ieee.csl
+#+with-author: t
+#+with-date: t
+
+* A concept for an intelligent framework, based on ideas in the Introduction to Franco ‘Bifo’ Berardi’s Futurability: The Age of Impotence and the Horizon of Possibility
+
+Humans are multi-faceted, complex, messy, emotional, prone to persuasive trickery, and easy to frighten.
+
+In his book, Futurability: The Age of Impotence and the Horizon of Possibility [cite:@berardi2007], Franco ‘Bifo’ Berardi provides a set of five guiding rules that determine how humans behave and make decisions:
+
+- Rational processes of calculation
+- Strategic decision
+- Ethical judgment
+- Aesthetic preference
+- Info-psycho stimulation
+
+#+print_bibliography:

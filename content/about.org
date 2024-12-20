@@ -8,15 +8,15 @@
 # #+ATTR_HTML: :style border-radius: 8px;
 
 # #+ATTR_HTML: :align left :width 250;margin:0px 8px 8px 0px;
-#+ATTR_HTML: :style float:left;margin:100px 8px 80px 0px;
+#+ATTR_HTML: :style float:left;margin:100px 8px 120px 0px;
 #+ATTR_HTML: :alt "Image of Martín as an egg" :title "Martín as an egg"
 #+ATTR_ORG: :align center
 [[file:../assets/img/mtr_egg.png]]
 * Martín Rodriguez
 
-is a recent graduate from Portland State University with an M.Sc. in Electrical and Computer Engineering with a focus on signal processing and machine learning. He received his B.Sc. in 2019 in Electrical and Computer Engineering with a focus on embedded systems, also from Portland State University.
+is a recent graduate. He received his M.Sc. in Electrical and Computer Engineering with a focus on signal processing and machine learning from Portland State University in December 2024. He received his B.Sc. in Electrical and Computer Engineering with a focus on embedded systems, also from Portland State University in 2019.
 
-His master's thesis is titled ``[[file:../assets/pdf/rodriguez_thesis.pdf][Applying Positive Unlabeled Learning Techniques and Using the Kullback-Leibler Divergence to Improve Geothermal Surveying Assessments]].''
+His master's thesis is titled ``[[file:../assets/pdf/rodriguez_thesis.pdf][Applying Positive Unlabeled Learning Techniques and Using the Kullback-Leibler Divergence to Improve Geothermal Surveying Assessments]].'' It was recently presented as a poster at Geothermal Rising Conference 2024 in Waikoloa, HI.
 
 This is a picture of Martín as an egg.
 
