@@ -85,12 +85,19 @@
                       "http://localhost:8080")
   "The URL for the site being generated.")
 
+(defvar javascript-format
+  (concat "<script type=\"text/javascript\">"
+          "  src="
+          mtr/site-url
+          "/assets/js/main.js"
+          "</script>"))
 
 ;; Customize the HTML output
 (setq org-html-validation-link nil
       org-html-head-include-scripts nil
       org-html-head-include-default-style nil
       org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />")
+                      ;; "<script type=\"text/javascript\" src=\"0.0.0.0:8080/assets/js/main.js\" />"))
       ;; org-html-head "<link rel=\"stylesheet\" href=\"assets/css/style.css\" />")
 
 ;; (defun mtr/site-header ()
@@ -121,7 +128,12 @@
                                           (a (@ (class "nav-link") (href "/about/")) "About") " "
                                           (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
                                           (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
-                                          (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "))))))))
+                                          (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "
+                                          (div (@ (class "vertical-line"))) " "
+                                          (div (@ (class "container"))
+                                          (span (@ (class "theme-toggle"))
+                                                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666699_sun_icon.png"))
+                                                           (style "width: 16px")))))))))))))
 
 ;; (defun mtr/site-header ()
 ;;   (list `(header (@ (class "site-header"))
@@ -211,8 +223,14 @@
        (meta (@ (author "mtrpdx - Martin Rodriguez")))
        (meta (@ (name "viewport")
                 (content "width=device-width, initial-scale=1, shrink-to-fit=no")))
+       (meta (@ (name "theme-color")
+                (content "{{ .Site.Params.themeColor }}")))
        (link (@ (rel "icon") (type "image/png") (href ,(concat mtr/site-url "/assets/img/favicon.png"))))
        (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/assets/css/style.css"))))
+       (script (@ (type "text/javascript") (src ,(concat mtr/site-url "/assets/js/main.js")))
+                    ;; Empty string to cause a closing </script> tag
+                    "")
+
 
        ,(when head-extra head-extra)
        (title ,(concat title " - mtrpdx")))
@@ -432,7 +450,7 @@
               :publishing-function org-html-publish-to-html
               :with-author t
               :with-creator t
-              :with-toc nil
+              :with-toc toc
               :section-numbers nil
               :auto-sitemap t
               :sitemap-filename "../posts.org"

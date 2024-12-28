@@ -521,10 +521,37 @@ html {
 }
 body {
   margin: 0;
+  padding: 0;
   font-family: "Inter", sans-serif;
   line-height: 1.5;
-  color: #222222;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
+  color: #222222;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #232425;
+    color: #a9a9b3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #222222;
+  }
+}
+[data-theme=dark] body {
+  background-color: #232425;
+  color: #a9a9b3;
+}
+[data-theme=light] body {
+  background-color: #ffffff;
+  color: #222222;
 }
 
 p {
@@ -537,7 +564,7 @@ b {
 }
 
 blockquote {
-  background-color: #232635;
+  background-color: #c3e88d;
   font-style: italic;
   border: 1px solid;
   border-radius: 4px;
@@ -658,13 +685,14 @@ kbd {
 }
 
 pre {
-  background-color: #232635;
+  background-color: #f3f3f3;
   padding: 1em;
   overflow-x: scroll;
 }
 
 code {
-  color: #c3e88d;
+  background-color: #fc9797;
+  color: #000000;
 }
 
 pre, code {
@@ -771,6 +799,7 @@ strong {
 .site-post {
   margin-top: 125px;
   margin-bottom: 2rem;
+  text-align: justify;
 }
 
 .site-post-title {
@@ -930,6 +959,154 @@ hr {
 a:hover.register-button,
 a:focus.register-button {
   color: #232635;
+}
+
+.org-src-container {
+  background-color: #fc9797;
+}
+
+.src {
+  background-color: #fc9797;
+}
+
+.src src-sh {
+  background-color: #fc9797;
+}
+
+div.vertical-line {
+  width: 0px; /* Line width */
+  margin: 0 36px 0 0;
+  background-color: gray; /* Line color */
+  height: 100%; /* Override in-line if you want specific height. */
+  float: right; /* Causes the line to float to left of content.
+//                 You can instead use position:absolute or display:inline-block
+//                 if this fits better with your design */
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggler {
+  fill: currentColor;
+}
+
+button,
+.button,
+a.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 8px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  background: #fafafa;
+}
+@media (prefers-color-scheme: dark) {
+  button,
+  .button,
+  a.button {
+    background: #1b1c1d;
+    color: inherit;
+  }
+}
+@media (prefers-color-scheme: light) {
+  button,
+  .button,
+  a.button {
+    background: #fafafa;
+  }
+}
+[data-theme=dark] button,
+[data-theme=dark] .button,
+[data-theme=dark] a.button {
+  background: #1b1c1d;
+  color: inherit;
+}
+[data-theme=light] button,
+[data-theme=light] .button,
+[data-theme=light] a.button {
+  background: #fafafa;
+}
+button.outline,
+.button.outline,
+a.button.outline {
+  background: transparent;
+  box-shadow: none;
+  padding: 8px 18px;
+  border-color: #eaeaea;
+}
+@media (prefers-color-scheme: dark) {
+  button.outline,
+  .button.outline,
+  a.button.outline {
+    border-color: #3b3d42;
+    color: inherit;
+  }
+}
+@media (prefers-color-scheme: light) {
+  button.outline,
+  .button.outline,
+  a.button.outline {
+    border-color: #eaeaea;
+  }
+}
+[data-theme=dark] button.outline,
+[data-theme=dark] .button.outline,
+[data-theme=dark] a.button.outline {
+  border-color: #3b3d42;
+  color: inherit;
+}
+[data-theme=light] button.outline,
+[data-theme=light] .button.outline,
+[data-theme=light] a.button.outline {
+  border-color: #eaeaea;
+}
+button.outline :hover,
+.button.outline :hover,
+a.button.outline :hover {
+  transform: none;
+  box-shadow: none;
+}
+button.primary,
+.button.primary,
+a.button.primary {
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+button.primary:hover,
+.button.primary:hover,
+a.button.primary:hover {
+  box-shadow: 0 2px 6px rgba(50, 50, 93, 0.21), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+button.link,
+.button.link,
+a.button.link {
+  background: none;
+  font-size: 1rem;
+}
+button.small,
+.button.small,
+a.button.small {
+  font-size: 0.8rem;
+}
+button.wide,
+.button.wide,
+a.button.wide {
+  min-width: 200px;
+  padding: 14px 24px;
 }
 
 /*# sourceMappingURL=style.css.map */
