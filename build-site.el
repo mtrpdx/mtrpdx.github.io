@@ -7,9 +7,9 @@
 ;; Created: May 03, 2024
 ;; Modified: May 03, 2024
 ;; Version: 0.0.1
-;; Keywords: comm
-;; Homepage: https://github.com/mtrpdx/mtrpdx.github.io
-;; Package-Requires: ((emacs "24.4"))
+;; ;; Keywords: hypermedia, blog, feed
+;; ;; Homepage: https://github.com/mtrpdx/mtrpdx.github.io
+;; Package-Requires: ((emacs "29.1"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -145,29 +145,76 @@
 ;;                         (a (@ (class "nav-link") (href "/projects/")) "Projects") "    |    "
 ;;                         (a (@ (class "nav-link") (href "/readinglist/")) "Reading List"))))))
 
+;; (defun mtr/link-row ()
+;;   "Create row for displaying social links. This is the old function that uses pngs."
+;;   (list `(div (@ (class "link-row"))
+;;           (div (@ (class "container") (align "center"))
+;;                (a (@ (href "https://github.com/mtrpdx"))
+;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666686_github_icon_64.png"))
+;;                           (style "width: 24px")
+;;                           (alt "Github link")))) "  "
+;;                (a (@ (href "https://gitlab.com/mtrpdx"))
+;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666646_gitlab_icon_64.png"))
+;;                           (style "width: 24px")
+;;                           (alt "Gitlab link")))) "  "
+;;                (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
+;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666770_linkedin_social_icon_64.png"))
+;;                           (style "width: 24px")
+;;                           (alt "LinkedIn link")))) "  "
+;;                (a (@ (href "mailto:mtrpdx@gmail.com"))
+;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
+;;                           (style "width: 24px")
+;;                           (alt "Email link")))) "  "
+;;                (a (@ (href "https://soundcloud.com/teensbeans"))
+;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666763_headphones_music_icon_64.png"))
+;;                           (style "width: 24px")
+;;                           (alt "Soundcloud link"))))))))
+
 (defun mtr/link-row ()
+  "Create row for displaying social links. This version uses svgs."
   (list `(div (@ (class "link-row"))
           (div (@ (class "container") (align "center"))
-       (a (@ (href "https://github.com/mtrpdx"))
-          (img (@ (src ,(concat mtr/site-url "/assets/icons/8666686_github_icon_64.png"))
-                  (style "width: 24px")
-                  (alt "Github link")))) "  "
-        (a (@ (href "https://gitlab.com/mtrpdx"))
-           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666646_gitlab_icon_64.png"))
-                   (style "width: 24px")
-                   (alt "Gitlab link")))) "  "
-        (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
-           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666770_linkedin_social_icon_64.png"))
-                   (style "width: 24px")
-                   (alt "LinkedIn link")))) "  "
-        (a (@ (href "mailto:mtrpdx@gmail.com"))
-           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
-                   (style "width: 24px")
-                   (alt "Email link")))) "  "
-        (a (@ (href "https://soundcloud.com/teensbeans"))
-           (img (@ (src ,(concat mtr/site-url "/assets/icons/8666763_headphones_music_icon_64.png"))
-                   (style "width: 24px")
-                   (alt "Soundcloud link"))))))))
+               (a (@ (href "https://github.com/mtrpdx"))
+                  (img (@ (class "feather")
+                          (src ,(concat mtr/site-url "/assets/icons/github.svg"))))) " "
+               (a (@ (href "https://gitlab.com/mtrpdx"))
+                  (img (@ (class "feather")
+                          (src ,(concat mtr/site-url "/assets/icons/gitlab.svg"))))) " "
+               (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
+                  (img (@ (class "feather")
+                          (src ,(concat mtr/site-url "/assets/icons/linkedin.svg"))))) " "
+               (a (@ (href "mailto:mtrpdx@gmail.com"))
+                  (img (@ (class "feather")
+                          (src ,(concat mtr/site-url "/assets/icons/mail.svg"))))) " "
+               (a (@ (href "https://soundcloud.com/teensbeans"))
+                  (img (@ (class "feather")
+                          (src ,(concat mtr/site-url "/assets/icons/headphones.svg")))))))))
+
+               ;; (a (@ (href "https://github.com/mtrpdx"))
+                  ;; (object (@ (class "feather-icons")
+                  ;;         (data ,(concat mtr/site-url "/assets/icons/github.svg"))
+                  ;;         (type "image/svg+xml")))))))
+
+               ;; (a (@ (href "https://github.com/mtrpdx"))
+               ;;    (svg (@ (image (@ (href ,(concat mtr/site-url "/assets/icons/github.svg"))
+               ;;            (style "width: 24px")
+               ;;            (alt "Github link")))))) "  "
+               ;; (a (@ (href "https://gitlab.com/mtrpdx"))
+               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666646_gitlab_icon_64.png"))
+               ;;            (style "width: 24px")
+               ;;            (alt "Gitlab link")))) "  "
+               ;; (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
+               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666770_linkedin_social_icon_64.png"))
+               ;;            (style "width: 24px")
+               ;;            (alt "LinkedIn link")))) "  "
+               ;; (a (@ (href "mailto:mtrpdx@gmail.com"))
+               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
+               ;;            (style "width: 24px")
+               ;;            (alt "Email link")))) "  "
+               ;; (a (@ (href "https://soundcloud.com/teensbeans"))
+               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666763_headphones_music_icon_64.png"))
+               ;;            (style "width: 24px")
+               ;;            (alt "Soundcloud link"))))))))
 
 (defun mtr/site-footer ()
   (list `(footer (@ (class "site-footer"))
@@ -242,15 +289,15 @@
                          ,title)
                       ,(when publish-date
                          `(p (@ (class "site-post-meta")) ,publish-date))
-                      (div (@ (a ) (href))
+                      ;; (div (@ (a ) (href))
                       ,(when pre-content pre-content)
                       (div (@ (id "content"))
-                           ,content))
+                           ,content)))
                  ,@(unless exclude-footer
-                     (mtr/site-footer)))))))))
+                     (mtr/site-footer)))))))
 
 (defun mtr/org-html-link (link contents info)
-  "Removes file extension and changes the path into lowercase file:// links."
+  "Remove file extension and changes the path into lowercase file:// links."
   (when (and (string= 'file (org-element-property :type link))
              (string= "org" (file-name-extension (org-element-property :path link))))
     (org-element-put-property link :path
@@ -424,7 +471,7 @@
               :time-stamp-file nil)
             '("mtrpdx:assets"
               :base-directory "./assets"
-              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf"
+              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|svg\\|map"
               :publishing-directory "./public/assets"
               :recursive t
               :publishing-function org-publish-attachment)

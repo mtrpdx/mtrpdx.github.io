@@ -90,16 +90,21 @@ html {
   max-width: 45rem;
   }
 
-  .nav-link {
-  position: relative;
-  padding: 0rem;
-  font-size: 0.7rem;
-  letter-spacing: .05rem;
-  margin: 0.4rem 0.4rem 0.4rem 0rem;
-  /* font-weight: bold; */
-  color: #222222;
-  text-decoration: none;
-  }
+  // .nav-link {
+  // position: relative;
+  // padding: 0rem;
+  // font-size: 0.7rem;
+  // letter-spacing: .05rem;
+  // margin: 0.4rem 0.4rem 0.4rem 0rem;
+  // /* font-weight: bold; */
+
+  // // Default
+  // color: #222222;
+  // text-decoration: none;
+
+
+
+  // }
 }
 
 /* sm */
@@ -295,12 +300,52 @@ h6 {
 h1 {
   color: #222222;
   font-size: 1.3rem;
+
+  @media (prefers-color-scheme: dark) {
+    // background: $dark-background-header;
+    color: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    // background: $light-background-header;
+    color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    // background: $dark-background-header;
+    color: $dark-color;
+  }
+
+  [data-theme=light] & {
+    // background: $light-background-header;
+    color: $light-color;
+  }
 }
 
 h2 {
   color: #222222;
   line-height: 1.2;
   // text-align: center;
+
+  @media (prefers-color-scheme: dark) {
+    // background: $dark-background-header;
+    color: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    // background: $light-background-header;
+    color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    // background: $dark-background-header;
+    color: $dark-color;
+  }
+
+  [data-theme=light] & {
+    // background: $light-background-header;
+    color: $light-color;
+  }
 }
 
 h3 {
@@ -350,10 +395,30 @@ pre {
   background-color: #f3f3f3;
   padding: 1em;
   overflow-x: scroll;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $dark-background-header;
+    // color: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: $light-background-header;
+    // color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    background-color: $dark-background-header;
+    // color: $dark-color;
+  }
+
+  [data-theme=light] & {
+    background-color: $light-background-header;
+    // color: $light-color;
+  }
 }
 
 code {
-background-color: #fc9797;
+  background-color: #fc9797;
   color: #000000;
 }
 
@@ -376,10 +441,31 @@ strong {
 
 .site-masthead {
   // margin-bottom: 0.5rem;
+  // Default
   background-color: #fafafa;
   /* border-bottom: 0.05rem solid #c3e88d; */
   /* -webkit-box-shadow: inset 0 -0.1rem 0.25rem rgba(0, 0, 0, 0.1); */
   /* box-shadow: inset 0 -0.1rem 0.25rem rgba(0, 0, 0, 0.1); */
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $dark-background-header;
+    // color: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: $light-background-header;
+    // color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    background-color: $dark-background-header;
+    // color: $dark-color;
+  }
+
+  [data-theme=light] & {
+    background-color: $light-background-header;
+    // color: $light-color;
+  }
 }
 
 .logo {
@@ -401,7 +487,28 @@ strong {
   /* font-weight: bold; */
   color: #222222;
   text-decoration: none;
+
+  @media (prefers-color-scheme: dark) {
+    // background: $dark-background-header;
+    color: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    // background: $light-background-header;
+    color: $light-color;
+  }
+
+  [data-theme=dark] & {
+    // background: $dark-background-header;
+    color: $dark-color;
+  }
+
+  [data-theme=light] & {
+    // background: $light-background-header;
+    color: light-color;
+  }
 }
+
 .nav-link:hover,
 .nav-link:focus {
   color: #fc9797;
@@ -430,8 +537,26 @@ strong {
   padding: 20px 20px 20px 20px;
   // font-weight: light;
   font-size: 12px;
-  background-color: $light-background-header;
+
+  // Default
+  background: $light-background-header;
   /* background-size: cover; */
+
+  @media (prefers-color-scheme: dark) {
+    background: $dark-background-header;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background: $light-background-header;
+  }
+
+  [data-theme=dark] & {
+    background: $dark-background-header;
+  }
+
+  [data-theme=light] & {
+    background: $light-background-header;
+  }
 }
 
 .site-title {
@@ -493,13 +618,33 @@ strong {
  */
 
 .site-footer {
-  padding: 1.3rem 0;
+  padding: 4rem 0;
   margin-top: 1rem;
   // color: #cdddeb;
   color: $light-color;
   font-size: 0.8rem;
   background-color: $light-background;
+
   // border-top: 0.05rem solid #c3e88d;
+  @media (prefers-color-scheme: dark) {
+    background-color: $dark-background;
+    color: $dark-color-secondary;
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: $light-background;
+    color: $light-color-secondary;
+  }
+
+  [data-theme=dark] & {
+    background-color: $dark-background;
+    color: $dark-color-secondary;
+  }
+
+  [data-theme=light] & {
+    background-color: $light-background;
+    color: $light-color-secondary;
+  }
 }
 
 .site-footer p:last-child {
@@ -637,19 +782,20 @@ a:focus.register-button {
   color: #232635;
 }
 
-.org-src-container {
-  background-color: #fc9797;
-}
+// .org-src-container {
+//   background-color: #fc9797;
+// }
 
 .src {
   background-color: #fc9797;
+  color: $light-color
 }
 
-.src src-sh {
-  background-color: #fc9797;
-}
+// .src src-sh {
+//   background-color: #fc9797;
+// }
 
-div.vertical-line{
+div.vertical-line {
   width: 0px; /* Line width */
   // padding: 0 20px 0 0;
   margin: 0 36px 0 0;
@@ -661,6 +807,10 @@ div.vertical-line{
   //                 if this fits better with your design */
   // position: absolute;
     }
+
+.link-row {
+  padding: 0.7rem 0;
+}
 
 .theme-toggle {
   display: flex;
@@ -764,5 +914,36 @@ a.button {
   &.wide {
     min-width: 200px;
     padding: 14px 24px;
+  }
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: $light-color;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  // fill: $dark-color;
+  fill: none;
+
+  @media (prefers-color-scheme: dark) {
+    // background-color: $dark-background-header;
+    stroke: $dark-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    // background-color: $light-background-header;
+    stroke: $light-color;
+  }
+
+  [data-theme=dark] & {
+    // background-color: $dark-background-header;
+    stroke: $dark-color;
+  }
+
+  [data-theme=light] & {
+    // background-color: $light-background-header;
+    stroke: $light-color;
   }
 }

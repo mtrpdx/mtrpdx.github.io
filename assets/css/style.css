@@ -451,16 +451,6 @@ html {
   .container {
     max-width: 45rem;
   }
-  .nav-link {
-    position: relative;
-    padding: 0rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.05rem;
-    margin: 0.4rem 0.4rem 0.4rem 0rem;
-    /* font-weight: bold; */
-    color: #222222;
-    text-decoration: none;
-  }
 }
 /* sm */
 @media screen and (min-width: 768px) {
@@ -637,10 +627,42 @@ h1 {
   color: #222222;
   font-size: 1.3rem;
 }
+@media (prefers-color-scheme: dark) {
+  h1 {
+    color: #a9a9b3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  h1 {
+    color: #222222;
+  }
+}
+[data-theme=dark] h1 {
+  color: #a9a9b3;
+}
+[data-theme=light] h1 {
+  color: #222222;
+}
 
 h2 {
   color: #222222;
   line-height: 1.2;
+}
+@media (prefers-color-scheme: dark) {
+  h2 {
+    color: #a9a9b3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  h2 {
+    color: #222222;
+  }
+}
+[data-theme=dark] h2 {
+  color: #a9a9b3;
+}
+[data-theme=light] h2 {
+  color: #222222;
 }
 
 h3 {
@@ -689,6 +711,22 @@ pre {
   padding: 1em;
   overflow-x: scroll;
 }
+@media (prefers-color-scheme: dark) {
+  pre {
+    background-color: #1b1c1d;
+  }
+}
+@media (prefers-color-scheme: light) {
+  pre {
+    background-color: #fafafa;
+  }
+}
+[data-theme=dark] pre {
+  background-color: #1b1c1d;
+}
+[data-theme=light] pre {
+  background-color: #fafafa;
+}
 
 code {
   background-color: #fc9797;
@@ -714,6 +752,22 @@ strong {
   /* -webkit-box-shadow: inset 0 -0.1rem 0.25rem rgba(0, 0, 0, 0.1); */
   /* box-shadow: inset 0 -0.1rem 0.25rem rgba(0, 0, 0, 0.1); */
 }
+@media (prefers-color-scheme: dark) {
+  .site-masthead {
+    background-color: #1b1c1d;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .site-masthead {
+    background-color: #fafafa;
+  }
+}
+[data-theme=dark] .site-masthead {
+  background-color: #1b1c1d;
+}
+[data-theme=light] .site-masthead {
+  background-color: #fafafa;
+}
 
 .logo {
   display: block;
@@ -734,6 +788,22 @@ strong {
   /* font-weight: bold; */
   color: #222222;
   text-decoration: none;
+}
+@media (prefers-color-scheme: dark) {
+  .nav-link {
+    color: #a9a9b3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .nav-link {
+    color: #222222;
+  }
+}
+[data-theme=dark] .nav-link {
+  color: #a9a9b3;
+}
+[data-theme=light] .nav-link {
+  color: light-color;
 }
 
 .nav-link:hover,
@@ -762,8 +832,24 @@ strong {
 .site-header {
   padding: 20px 20px 20px 20px;
   font-size: 12px;
-  background-color: #fafafa;
+  background: #fafafa;
   /* background-size: cover; */
+}
+@media (prefers-color-scheme: dark) {
+  .site-header {
+    background: #1b1c1d;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .site-header {
+    background: #fafafa;
+  }
+}
+[data-theme=dark] .site-header {
+  background: #1b1c1d;
+}
+[data-theme=light] .site-header {
+  background: #fafafa;
 }
 
 .site-title {
@@ -822,11 +908,31 @@ strong {
  * Footer
  */
 .site-footer {
-  padding: 1.3rem 0;
+  padding: 4rem 0;
   margin-top: 1rem;
   color: #222222;
   font-size: 0.8rem;
   background-color: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  .site-footer {
+    background-color: #232425;
+    color: #b3b3bd;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .site-footer {
+    background-color: #ffffff;
+    color: #999999;
+  }
+}
+[data-theme=dark] .site-footer {
+  background-color: #232425;
+  color: #b3b3bd;
+}
+[data-theme=light] .site-footer {
+  background-color: #ffffff;
+  color: #999999;
 }
 
 .site-footer p:last-child {
@@ -961,16 +1067,9 @@ a:focus.register-button {
   color: #232635;
 }
 
-.org-src-container {
-  background-color: #fc9797;
-}
-
 .src {
   background-color: #fc9797;
-}
-
-.src src-sh {
-  background-color: #fc9797;
+  color: #222222;
 }
 
 div.vertical-line {
@@ -981,6 +1080,10 @@ div.vertical-line {
   float: right; /* Causes the line to float to left of content.
 //                 You can instead use position:absolute or display:inline-block
 //                 if this fits better with your design */
+}
+
+.link-row {
+  padding: 0.7rem 0;
 }
 
 .theme-toggle {
@@ -1107,6 +1210,32 @@ button.wide,
 a.button.wide {
   min-width: 200px;
   padding: 14px 24px;
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: #222222;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+@media (prefers-color-scheme: dark) {
+  .feather {
+    stroke: #a9a9b3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .feather {
+    stroke: #222222;
+  }
+}
+[data-theme=dark] .feather {
+  stroke: #a9a9b3;
+}
+[data-theme=light] .feather {
+  stroke: #222222;
 }
 
 /*# sourceMappingURL=style.css.map */
