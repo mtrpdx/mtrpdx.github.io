@@ -1217,6 +1217,7 @@ a.button.wide {
 .feather {
   width: 24px;
   height: 24px;
+  viewBox: 0 0 24 24;
   stroke: #222222;
   stroke-width: 2;
   stroke-linecap: round;
