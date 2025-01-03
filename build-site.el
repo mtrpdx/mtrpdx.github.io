@@ -92,6 +92,9 @@
           "/assets/js/main.js"
           "</script>"))
 
+(defvar svg-format
+  "<svg class=\"theme-toggle\" width=\"24\" height=\"24\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z\"/></svg>")
+
 ;; Customize the HTML output
 (setq org-html-validation-link nil
       org-html-head-include-scripts nil
@@ -129,11 +132,19 @@
                                           (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
                                           (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
                                           (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "
-                                          (div (@ (class "vertical-line"))) " "
-                                          (div (@ (class "container"))
-                                          (span (@ (class "theme-toggle"))
-                                                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666699_sun_icon.png"))
-                                                           (style "width: 16px")))))))))))))
+                                          ;; (div (@ (class "vertical-line")) "") " "
+                                          ;; (div (@ (class "container"))
+                                          ;; ,svg-format))))))))
+                                          (span (@ (class "theme-toggle not-selectable"))
+                                          (svg (@ (class "theme-toggler")
+                                                  (width "24")
+                                                  (height "24")
+                                                  (viewBox "0 0 48 48")
+                                                  (fill "none")
+                                                  (xmlns "http://www.w3.org/2000/svg"))
+                                               (path (@ (d "M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z")))))))))))))
 
 ;; (defun mtr/site-header ()
 ;;   (list `(header (@ (class "site-header"))

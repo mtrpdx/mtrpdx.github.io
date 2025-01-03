@@ -800,9 +800,9 @@ div.vertical-line {
   // padding: 0 20px 0 0;
   margin: 0 36px 0 0;
   background-color: gray; /* Line color */
-  height: 100%; /* Override in-line if you want specific height. */
-  // display: inline-block;
-  float: right; /* Causes the line to float to left of content.
+  // height: 100%; /* Override in-line if you want specific height. */
+  display: flex;
+  // float: right; /* Causes the line to float to left of content.
   //                 You can instead use position:absolute or display:inline-block
   //                 if this fits better with your design */
   // position: absolute;
@@ -813,15 +813,48 @@ div.vertical-line {
 }
 
 .theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  float: right;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   line-height: 1;
   cursor: pointer;
 }
 
 .theme-toggler {
   fill: currentColor;
+  // float: right;
+  // stroke-width: 2;
+  // stroke-linecap: round;
+  // stroke-linejoin: round;
+  // cursor: pointer;
+
+  // @media (prefers-color-scheme: dark) {
+  //   // background-color: $dark-background-header;
+  //   stroke: $dark-color;
+  // }
+
+  // @media (prefers-color-scheme: light) {
+  //   // background-color: $light-background-header;
+  //   stroke: $light-color;
+  // }
+
+  // [data-theme=dark] & {
+  //   // background-color: $dark-background-header;
+  //   stroke: $dark-color;
+  // }
+
+  // [data-theme=light] & {
+  //   // background-color: $light-background-header;
+  //   stroke: $light-color;
+  // }
+}
+
+.not-selectable {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 button,
