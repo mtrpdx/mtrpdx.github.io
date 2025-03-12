@@ -131,20 +131,21 @@
                                           (a (@ (class "nav-link") (href "/about/")) "About") " "
                                           (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
                                           (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
-                                          (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "
+                                          (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "))))))))
                                           ;; (div (@ (class "vertical-line")) "") " "
                                           ;; (div (@ (class "container"))
                                           ;; ,svg-format))))))))
-                                          (span (@ (class "theme-toggle"))
-                                          (svg (@ (class "theme-toggler")
-                                                  (width "24")
-                                                  (height "24")
-                                                  (viewBox "0 0 48 48")
-                                                  (fill "none")
-                                                  (xmlns "http://www.w3.org/2000/svg"))
-                                               (path (@ (d "M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-                                                         3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-                                                         13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z")))))))))))))
+                                          ;;
+                                          ;; (span (@ (class "theme-toggle"))
+                                          ;; (svg (@ (class "theme-toggler")
+                                          ;;         (width "24")
+                                          ;;         (height "24")
+                                          ;;         (viewBox "0 0 48 48")
+                                          ;;         (fill "none")
+                                          ;;         (xmlns "http://www.w3.org/2000/svg"))
+                                          ;;      (path (@ (d "M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+                                          ;;                3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+                                          ;;                13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z")))))))))))))
 
 ;; (defun mtr/site-header ()
 ;;   (list `(header (@ (class "site-header"))
@@ -306,6 +307,7 @@
        (meta (@ (name "theme-color")
                 (content "{{ .Site.Params.themeColor }}")))
        (link (@ (rel "icon") (type "image/png") (href ,(concat mtr/site-url "/assets/img/favicon.png"))))
+       (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/assets/css/code.css"))))
        (link (@ (rel "stylesheet") (href ,(concat mtr/site-url "/assets/css/style.css"))))
        (script (@ (type "text/javascript") (src ,(concat mtr/site-url "/assets/js/main.js")))
                     ;; Empty string to cause a closing </script> tag
@@ -391,6 +393,11 @@
      (when (and container (not (string= "" container)))
        (format "</%s>" (cl-subseq container 0 (cl-search " " container)))))))
 
+(defun mtr/org-html-src-block (src-block _contents info)
+  (let* ((lang (org-element-property :language src-block))
+           (code (org-html-format-code src-block info)))
+    (format "<pre>%s</pre>" (string-trim code))))
+
 (defun mtr/org-html-template (contents info)
   (mtr/generate-page (org-export-data (plist-get info :title) info)
                     contents
@@ -401,6 +408,7 @@
   :translate-alist
   '((template . mtr/org-html-template)
     (link . mtr/org-html-link)
+    (src-block . mtr/org-html-src-block)
     (headline . mtr/org-html-headline)))
 
 (defun org-html-publish-to-html (plist filename pub-dir)
@@ -422,7 +430,7 @@
 (setq org-publish-use-timestamps-flag t
       org-publish-timestamp-directory "./.org-cache/"
       org-attach-id-dir "./assets/"
-      org-export-with-section-numbers nil
+      org-export-with-section-numbers t
       org-export-use-babel nil
       org-export-with-smart-quotes t
       org-export-with-sub-superscripts nil

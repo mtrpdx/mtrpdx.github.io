@@ -417,14 +417,14 @@ pre {
   }
 }
 
-code {
-  background-color: #fc9797;
-  color: #000000;
-}
-
 pre, code {
   font-size: 0.75em;
   font-family: "JetBrains Mono", monospace;
+}
+
+code {
+  // background-color: #fc9797;
+  color:   #000000;
 }
 
 strong {
