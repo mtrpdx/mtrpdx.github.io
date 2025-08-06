@@ -1,1 +1,10 @@
 .DS_Store
+.auctex-auto/
+.org-cache/
+.packages/
+old/
+old_css_assets/
+private/
+public/
+public_old/
+publish.el

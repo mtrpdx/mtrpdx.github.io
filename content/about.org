@@ -20,6 +20,6 @@ His master's thesis is titled ``[[file:../assets/pdf/rodriguez_thesis.pdf][Apply
 
 This is a picture of Martín as an egg.
 
-You can view his CV below.
+You can view his résumé below.
 
-[[file:../assets/pdf/mtr_resume.pdf][Martín’s CV]]
+[[file:../assets/pdf/mtr_resume.pdf][Martín’s résumé]]

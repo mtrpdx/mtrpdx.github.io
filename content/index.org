@@ -1,12 +1,11 @@
 #+title: Martín Rodriguez
+#+HTML_EMBED_SVG: t
 
 #+HTML:<div align=center>
-Signal Processing and Machine Learning
-#+HTML:</div>
+#+ATTR_HTML: :alt "abstract graphic created in touch designer" :title "twisting_feedback_6"
+#+ATTR_HTML: :width 400px
+#+ATTR_HTML: :style float:none;margin:20px 0px 20px 0px;
+[[file:../assets/img/34252_gray.png]]
 
-# #+HTML:<div align=center>
-# #+ATTR_HTML: :alt Github :title Github :width 24
-# [[https://github.com/mtrpdx][file:../assets/icons/8666686_github_icon_64.png]]
-# #+ATTR_HTML: :alt Gitlab :title Gitlab :width 24
-# [[https://gitlab.com/mtrpdx][file:../assets/icons/8666646_gitlab_icon_64.png]]
-# #+HTML:</div>
+Signal Processing + Machine Learning + Embedded Systems
+#+HTML:</div>

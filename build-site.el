@@ -58,7 +58,9 @@
 
 ;; Install dependencies
 (require 'vc-git)
+(require 'ox-html)
 (require 'ox-publish)
+(require 'nxml-mode)
 (require 'subr-x)
 (require 'cl-lib)
 
@@ -404,6 +406,38 @@
                     info
                     :publish-date (org-export-data (org-export-get-date info "%B %e, %Y") info)))
 
+
+(defcustom org+-html-embed-svg nil
+  "Embed SVG images.
+You can set this variable in Org files with
+#+HTML_EMBED_SVG: t
+or
+#+OPTIONS: html-embed-svg:t"
+  :type 'boolean
+  :group 'org-export-html)
+
+(cl-pushnew
+ '(:html-embed-svg "HTML_EMBED_SVG" "html-embed-svg" org+-html-embed-svg)
+ (org-export-backend-options (org-export-get-backend 'html)))
+
+(defun org+-html-svg-image-embed (fun source attributes info)
+  "Make embedding of SVG images possible in org HTML export.
+SVG images are embedded if :html-embed-svg is non-nil in the plist INFO.
+Otherwise FUN called with SOURCE, ATTRIBUTES, and INFO as arguments.
+SOURCE is the file name of the SVG file.
+This is an around advice for `org-html--svg-image' as FUN."
+  (if (member (plist-get info :html-embed-svg) '("yes" "t" t))
+      (with-temp-buffer
+    (insert-file-contents source)
+    (with-syntax-table nxml-mode-syntax-table
+      (while (and (search-forward "<svg") ;; barfs if a "<svg" is not found in code
+              (nth 8 (syntax-ppss)))))
+    (delete-region (point-min) (match-beginning 0))
+    (buffer-string))
+    (funcall fun source attributes info)))
+
+(advice-add 'org-html--svg-image :around #'org+-html-svg-image-embed)
+
 (org-export-define-derived-backend 'site-html 'html
   :translate-alist
   '((template . mtr/org-html-template)
@@ -512,7 +546,7 @@
               :time-stamp-file nil)
             '("mtrpdx:assets"
               :base-directory "./assets"
-              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|svg\\|map"
+              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|svg\\|map\\|csl"
               :publishing-directory "./public/assets"
               :recursive t
               :publishing-function org-publish-attachment)
@@ -534,8 +568,8 @@
               :base-directory "./content/posts"
               :base-extension "org"
               :publishing-directory "./public/posts"
-              :exclude "futurability.org"
               :publishing-function org-html-publish-to-html
+              :recursive t
               :with-author t
               :with-creator t
               :with-toc toc
