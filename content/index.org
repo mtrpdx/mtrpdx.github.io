@@ -1,5 +1,4 @@
 #+title: Martín Rodriguez
-#+HTML_EMBED_SVG: t
 
 #+HTML:<div align=center>
 #+ATTR_HTML: :alt "abstract graphic created in touch designer" :title "twisting_feedback_6"
