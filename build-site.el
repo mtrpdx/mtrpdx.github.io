@@ -58,9 +58,7 @@
 
 ;; Install dependencies
 (require 'vc-git)
-;;(require 'ox-html)
 (require 'ox-publish)
-;;(require 'nxml-mode)
 (require 'subr-x)
 (require 'cl-lib)
 
@@ -537,7 +535,6 @@
               :base-extension "org"
               :publishing-directory "./public/posts"
               :publishing-function org-html-publish-to-html
-              :recursive t
               :with-author t
               :with-creator t
               :with-toc toc
