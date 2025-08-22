@@ -7,4 +7,8 @@
 </picture>
 #+END_EXPORT
 
+#+begin_EXPORT html
+<p class="tagline">
 Signal Processing + Machine Learning + Embedded Systems
+</p>
+#+end_EXPORT

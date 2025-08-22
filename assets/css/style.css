@@ -391,124 +391,11 @@ html {
   font-size: 14px;
 }
 
-/*
- * Support for different screen sizes
- */
-@media screen and (max-width: 767px) {
-  html {
-    font-size: 14px;
-  }
-  .logo {
-    max-width: 150px;
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    width: 100%;
-  }
-  .row .column {
-    display: block;
-    flex: 1 1 auto;
-    max-width: 100%;
-    width: 100%;
-  }
-  .row .column .align-left {
-    display: block;
-    flex: 1 1 auto;
-  }
-  .row .column:not(:last-child) {
-    margin-right: 10px;
-    margin-bottom: 1rem;
-  }
-  .row .column .align-right {
-    text-align: right;
-  }
-  .container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-  }
-  .nav {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .video {
-    width: 100%;
-  }
-  .list-form {
-    width: 90%;
-  }
-  .newsletter-text {
-    font-size: 0.42em;
-  }
-  blockquote {
-    margin: 1rem 0rem;
-  }
-  .container {
-    max-width: 45rem;
-  }
+img {
+  max-width: 100%;
+  height: auto;
 }
-/* sm */
-@media screen and (min-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-  .logo {
-    max-width: 200px;
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    width: 100%;
-  }
-  .row .column {
-    display: block;
-    flex: 1 1 auto;
-    max-width: 100%;
-    width: 100%;
-  }
-  .row .column:not(:last-child) {
-    margin-right: 10px;
-  }
-  .align-right {
-    text-align: right;
-  }
-  .video {
-    width: 70%;
-  }
-  .list-form {
-    width: 60%;
-  }
-  .newsletter-text {
-    font-size: 0.9em;
-  }
-  blockquote {
-    margin: 1rem 2rem;
-  }
-}
-/* md */
-@media screen and (min-width: 992px) {
-  html {
-    font-size: 16px;
-  }
-  .logo {
-    max-width: 300px;
-  }
-  blockquote {
-    margin: 1rem 4rem;
-  }
-}
-/* lg */
-@media screen and (min-width: 2560px) {
-  html {
-    font-size: 18px;
-  }
-}
+
 body {
   margin: 0;
   padding: 0;
@@ -577,10 +464,12 @@ dd {
 }
 
 .container {
-  margin-right: auto;
+  width: 100%;
+  max-width: 65rem; /* Sets a comfortable max reading width */
   margin-left: auto;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  margin-right: auto;
+  padding-left: 1rem; /* Adds space on the sides */
+  padding-right: 1rem; /* Adds space on the sides */
 }
 
 .nav {
@@ -885,6 +774,15 @@ strong {
   margin-top: 125px;
   margin-bottom: 2rem;
   text-align: justify;
+}
+
+.tagline {
+  text-align: center;
+}
+
+.about-me-img {
+  float: left;
+  max-width: 100%;
 }
 
 .site-post-title {
@@ -1242,6 +1140,127 @@ a.button.wide {
 }
 [data-theme=light] .feather {
   stroke: #222222;
+}
+
+/*
+ * Support for different screen sizes
+ */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .logo {
+    max-width: 150px;
+  }
+  .about-me-img {
+    max-width: 100%;
+    float: none;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    width: 100%;
+  }
+  .row .column {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+  .row .column .align-left {
+    display: block;
+    flex: 1 1 auto;
+  }
+  .row .column:not(:last-child) {
+    margin-right: 10px;
+    margin-bottom: 1rem;
+  }
+  .row .column .align-right {
+    text-align: right;
+  }
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .site-header .nav .column {
+    text-align: left;
+    margin-right: 0;
+  }
+  .site-header .nav .column.align-right {
+    margin-left: 1rem;
+    text-align: right;
+  }
+  .video {
+    width: 100%;
+  }
+  .list-form {
+    width: 90%;
+  }
+  .newsletter-text {
+    font-size: 0.42em;
+  }
+  blockquote {
+    margin: 1rem 0rem;
+  }
+}
+/* sm */
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .logo {
+    max-width: 200px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    width: 100%;
+  }
+  .row .column {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  .row .column:not(:last-child) {
+    margin-right: 10px;
+  }
+  .align-right {
+    text-align: right;
+  }
+  .video {
+    width: 70%;
+  }
+  .list-form {
+    width: 60%;
+  }
+  .newsletter-text {
+    font-size: 0.9em;
+  }
+  blockquote {
+    margin: 1rem 2rem;
+  }
+}
+/* md */
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+  .logo {
+    max-width: 300px;
+  }
+  blockquote {
+    margin: 1rem 4rem;
+  }
+}
+/* lg */
+@media screen and (min-width: 2560px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
