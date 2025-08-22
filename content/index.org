@@ -1,8 +1,10 @@
 #+title: Martín Rodriguez
 
-#+ATTR_HTML: :alt "abstract graphic of a gray box" :title "gray box"
-#+ATTR_HTML: :width 400px
-#+ATTR_HTML: :style float:none;margin:20px 0px 20px 0px;
-[[file:../assets/img/34252_gray.png]]
+#+BEGIN_EXPORT html
+<picture>
+  <source srcset="../assets/img/34252_dark.png" media="(prefers-color-scheme: dark)">
+  <img src="../assets/img/34252_gray.png" alt="Abstract graphic of a gray box" width="400" style="display: block;margin-top: 20px;margin-bottom: 20px;margin-right: auto;margin-left: auto">
+</picture>
+#+END_EXPORT
 
 Signal Processing + Machine Learning + Embedded Systems
