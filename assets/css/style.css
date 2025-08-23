@@ -468,7 +468,6 @@ dd {
   max-width: 65rem; /* Sets a comfortable max reading width */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem; /* Adds space on the sides */
   padding-right: 1rem; /* Adds space on the sides */
 }
 
@@ -576,8 +575,6 @@ a:focus {
 .anchor {
   color: #292d3e;
   float: left;
-  padding-right: 4px;
-  margin-left: -23px;
 }
 
 .anchor:hover {
@@ -628,10 +625,6 @@ code {
 
 strong {
   font-weight: 700;
-}
-
-.container {
-  max-width: 45rem;
 }
 
 .site-masthead {
@@ -807,6 +800,9 @@ strong {
 .site-footer {
   padding: 4rem 0;
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #222222;
   font-size: 0.8rem;
   background-color: #ffffff;
@@ -834,10 +830,6 @@ strong {
 
 .site-footer p:last-child {
   margin-bottom: 0;
-}
-
-.site-footer-right {
-  text-align: right;
 }
 
 .site-footer-line {
@@ -981,7 +973,7 @@ div.vertical-line {
 }
 
 .link-row {
-  padding: 0.7rem 0;
+  padding: 0 0 0 0;
 }
 
 .theme-toggle {
