@@ -10,13 +10,25 @@
 ;; ;; Keywords: hypermedia, blog, feed
 ;; ;; Homepage: https://github.com/mtrpdx/mtrpdx.github.io
 ;; Package-Requires: ((emacs "29.1"))
-;;
+
 ;; This file is not part of GNU Emacs.
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Docs License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
 ;;
-;;; Commentary:
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Docs License for more details.
 ;;
-;;  Description
-;;
+;; You should have received a copy of the GNU General Docs License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Usage:
+;; emacs -Q --batch -l ./build-site.el --funcall mtr/publish
+
 ;;; Code:
 
 ;; Initialize package sources
@@ -58,9 +70,7 @@
 
 ;; Install dependencies
 (require 'vc-git)
-;;(require 'ox-html)
 (require 'ox-publish)
-;;(require 'nxml-mode)
 (require 'subr-x)
 (require 'cl-lib)
 
@@ -97,6 +107,14 @@
   :pin "melpa-stable"
   :ensure t)
 
+(defvar yt-iframe-format
+  (concat "<div class=\"video\">"
+          "  <iframe src=\"https://www.youtube.com/embed/%s\" allowfullscreen></iframe>"
+          "</div>"))
+
+(defun mtr/embed-video (video-id)
+  (format yt-iframe-format video-id))
+
 (setq user-full-name "Martin Rodriguez")
 (setq user-mail-address "mtrpdx@gmail.com")
 
@@ -114,6 +132,18 @@
 
 (defvar svg-format
   "<svg class=\"theme-toggle\" width=\"24\" height=\"24\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z\"/></svg>")
+
+(org-link-set-parameters
+ "yt"
+ :follow
+ (lambda (handle)
+   (browse-url
+    (concat "https://www.youtube.com/watch?v="
+            handle)))
+ :export
+ (lambda (path desc backend channel)
+   (when (eq backend 'html)
+     (mtr/embed-video path))))
 
 ;; Customize the HTML output
 (setq org-html-validation-link nil
@@ -152,55 +182,6 @@
                                           (a (@ (class "nav-link") (href "/posts/")) "Posts") " "
                                           (a (@ (class "nav-link") (href "/projects/")) "Projects") " "
                                           (a (@ (class "nav-link") (href "/readinglist/")) "Reading List") " "))))))))
-                                          ;; (div (@ (class "vertical-line")) "") " "
-                                          ;; (div (@ (class "container"))
-                                          ;; ,svg-format))))))))
-                                          ;;
-                                          ;; (span (@ (class "theme-toggle"))
-                                          ;; (svg (@ (class "theme-toggler")
-                                          ;;         (width "24")
-                                          ;;         (height "24")
-                                          ;;         (viewBox "0 0 48 48")
-                                          ;;         (fill "none")
-                                          ;;         (xmlns "http://www.w3.org/2000/svg"))
-                                          ;;      (path (@ (d "M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-                                          ;;                3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-                                          ;;                13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z")))))))))))))
-
-;; (defun mtr/site-header ()
-;;   (list `(header (@ (class "site-header"))
-;;                  (div (@ (class "container"))
-;;                       (div (@ (class "site-masthead"))
-;;                         (nav (@ (class "nav"))
-;;                 (a (@ (class "nav-link") (href "/")) "> mtrpdx/") " "))
-;;                 (a (@ (class "nav-link") (href "/about/")) "About") "    |    "
-;;                         (a (@ (class "nav-link") (href "/projects/")) "Projects") "    |    "
-;;                         (a (@ (class "nav-link") (href "/readinglist/")) "Reading List"))))))
-
-;; (defun mtr/link-row ()
-;;   "Create row for displaying social links. This is the old function that uses pngs."
-;;   (list `(div (@ (class "link-row"))
-;;           (div (@ (class "container") (align "center"))
-;;                (a (@ (href "https://github.com/mtrpdx"))
-;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666686_github_icon_64.png"))
-;;                           (style "width: 24px")
-;;                           (alt "Github link")))) "  "
-;;                (a (@ (href "https://gitlab.com/mtrpdx"))
-;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666646_gitlab_icon_64.png"))
-;;                           (style "width: 24px")
-;;                           (alt "Gitlab link")))) "  "
-;;                (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
-;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666770_linkedin_social_icon_64.png"))
-;;                           (style "width: 24px")
-;;                           (alt "LinkedIn link")))) "  "
-;;                (a (@ (href "mailto:mtrpdx@gmail.com"))
-;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
-;;                           (style "width: 24px")
-;;                           (alt "Email link")))) "  "
-;;                (a (@ (href "https://soundcloud.com/teensbeans"))
-;;                   (img (@ (src ,(concat mtr/site-url "/assets/icons/8666763_headphones_music_icon_64.png"))
-;;                           (style "width: 24px")
-;;                           (alt "Soundcloud link"))))))))
 
 (defun mtr/link-row ()
   "Create row for displaying social links. This version uses svgs."
@@ -243,32 +224,6 @@
                           (path (@ (d "M3 18v-6a9 9 0 0 1 18 0v6")))
                           (path (@ (d "M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1
                                        2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z")))))))))
-
-               ;; (a (@ (href "https://github.com/mtrpdx"))
-                  ;; (object (@ (class "feather-icons")
-                  ;;         (data ,(concat mtr/site-url "/assets/icons/github.svg"))
-                  ;;         (type "image/svg+xml")))))))
-
-               ;; (a (@ (href "https://github.com/mtrpdx"))
-               ;;    (svg (@ (image (@ (href ,(concat mtr/site-url "/assets/icons/github.svg"))
-               ;;            (style "width: 24px")
-               ;;            (alt "Github link")))))) "  "
-               ;; (a (@ (href "https://gitlab.com/mtrpdx"))
-               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666646_gitlab_icon_64.png"))
-               ;;            (style "width: 24px")
-               ;;            (alt "Gitlab link")))) "  "
-               ;; (a (@ (href "https://www.linkedin.com/in/martintrodriguez/"))
-               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666770_linkedin_social_icon_64.png"))
-               ;;            (style "width: 24px")
-               ;;            (alt "LinkedIn link")))) "  "
-               ;; (a (@ (href "mailto:mtrpdx@gmail.com"))
-               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666723_mail_icon_64.png"))
-               ;;            (style "width: 24px")
-               ;;            (alt "Email link")))) "  "
-               ;; (a (@ (href "https://soundcloud.com/teensbeans"))
-               ;;    (img (@ (src ,(concat mtr/site-url "/assets/icons/8666763_headphones_music_icon_64.png"))
-               ;;            (style "width: 24px")
-               ;;            (alt "Soundcloud link"))))))))
 
 (defun mtr/site-footer ()
   (list `(footer (@ (class "site-footer"))
@@ -344,7 +299,8 @@
                          ,title)
                       ,(when publish-date
                          `(p (@ (class "site-post-meta")) ,publish-date))
-                      ;; (div (@ (a ) (href))
+                      ,(if-let ((video-id (plist-get info :video)))
+                           (dw/embed-video video-id))
                       ,(when pre-content pre-content)
                       (div (@ (id "content"))
                            ,content)))
@@ -397,7 +353,6 @@
      (when (and container (not (string= "" container)))
        (format "<%s%s>" container (if container-class (format " class=\"%s\"" container-class) "")))
      (if (not (org-export-low-level-p headline info))
-         ;; (format "<h%d%s><a id=\"%s\" class=\"anchor\" href=\"#%s\">¶</a>%s</h%d>%s"
          (format "<h%d%s><a id=\"%s\" class=\"anchor\" href=\"#%s\"></a>%s</h%d>%s"
                  level
                  (or attributes "")

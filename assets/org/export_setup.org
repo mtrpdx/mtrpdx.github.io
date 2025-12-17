@@ -1,0 +1,6 @@
+#+cite_export: csl "../../../assets/csl/ieee.csl"
+#+with-author: t
+#+with-date: t
+#+with-toc: headlines 1
+#+options: section-numbers:t num:0 H:2 \n:t broken-links:mark
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/assets/css/code.css" />

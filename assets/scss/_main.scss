@@ -58,6 +58,14 @@ body {
   }
 }
 
+table {
+  // table-layout: fixed;
+  // white-space: normal;
+  // word-break: break-word;
+  width: 100%;
+}
+
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -68,11 +76,11 @@ b {
 }
 
 blockquote {
-  background-color: #c3e88d;
+  background-color: #665c5c33;
   font-style: italic;
   border: 1px solid;
-  border-radius: 4px;
-  border-image: linear-gradient(45deg, #f78c6c, rgb(250,224,66)) 1;
+  border-radius: 0px;
+  border-image: linear-gradient(45deg, #f78c6c, #ededed) 1;
   padding: 1.4rem 1.4rem 0.4rem 1.4rem;
 }
 
@@ -90,23 +98,19 @@ dd {
   padding-left: 10px;
 }
 
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
 // .container {
 //   margin-right: auto;
 //   margin-left: auto;
 //   padding-right: 0.75rem;
 //   padding-left: 0.75rem;
 // }
-
-.container {
-  // width: 100%;
-  width: 70vw;
-  max-width: 65rem; /* Sets a comfortable max reading width */
-  margin-left: auto;
-  margin-right: auto;
-  // padding-left: 1rem;  /* Adds space on the sides */
-  padding-right: 1rem; /* Adds space on the sides */
-  }
-
 
 .nav {
   display: grid;
@@ -280,9 +284,26 @@ code {
   color:   #000000;
 }
 
+pre.example {
+  border: 1px solid;
+  border-radius: 0px;
+  background-color: #f3f3f3;
+  border-color: #fc9797;
+}
+
 strong {
   font-weight: 700;
 }
+
+.container {
+  // width: 100%;
+  // width: 70vw;
+  max-width: 45rem; /* Sets a comfortable max reading width */
+  // margin-left: auto;
+  // margin-right: auto;
+  // padding-left: 1rem;  /* Adds space on the sides */
+  // padding-right: 1rem; /* Adds space on the sides */
+  }
 
 // .container {
 //   max-width: 45rem;
@@ -813,6 +834,11 @@ a.button {
     min-width: 200px;
     padding: 14px 24px;
   }
+}
+
+#table-of-contents {
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .feather {

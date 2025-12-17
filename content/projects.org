@@ -1,13 +1,31 @@
 #+title: Projects
 #+options: \n:t
 
+* Current Projects (in various stages of development)
+
+** Computational acoustic morphogenesis* and additive manufacturing with open source tools
+   \ast I wanted to include``via topological optimization" in the title but it is a bit of a mouthful as is
+   [[https://github.com/mtrpdx/aurora][Github link]]
+   
+** xyzdj: open source, modular dj controller and effects ecosystem
+   [[https://github.com/mtrpdx/xyzdj][Github link]]
+
+
+** SpliceCooker: Sample file reorganizer and export tool for Splice libraries.
+   [[https://github.com/mtrpdx/SpliceCooker][Github link]]
+
+** eigenfaces, 2023--2024
+[[yt:GQOsj8PVrso][Watch the video on YouTube!]]
+
+=Audiovisual sequence created using the Olivetti Faces Dataset (courtesy of AT&T Laboratories Cambridge) in TouchDesigner and Ableton Live=
+
 * Fall 2022
 ** EE 522: Discrete Time Processing Final Project
-[[file:../assets/pdf/ee522_report.pdf][Real-time tempo detection with harmonic-percussive source separation via median filtering]]
+   [[file:../assets/pdf/ee522_report.pdf][Real-time tempo detection with harmonic-percussive source separation via median filtering]]
 ** EE 513: Intro to Image Processing Final Project
-[[file:../assets/pdf/ee513_report.pdf][Image sorting and sequencing using Canny edge detection and Hough transforms]]
+   [[file:../assets/pdf/ee513_report.pdf][Image sorting and sequencing using Canny edge detection and Hough transforms]]
 * Spring 2022
 ** EE 510: Machine Learning Theory & Algorithms Mini-Projects
-[[file:../assets/pdf/mp01.pdf][Titanic mortality using ridge regression]]
-[[file:../assets/pdf/mp02.pdf][Car insurance claim prediction using XGBoost]]
-[[file:../assets/pdf/mp03.pdf][Japan stock market prediction using CatBoost]]
+   [[file:../assets/pdf/mp01.pdf][Titanic mortality using ridge regression]]
+   [[file:../assets/pdf/mp02.pdf][Car insurance claim prediction using XGBoost]]
+   [[file:../assets/pdf/mp03.pdf][Japan stock market prediction using CatBoost]]
