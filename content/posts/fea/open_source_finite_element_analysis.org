@@ -5,12 +5,12 @@
 #+cite_export: csl "../../../assets/csl/ieee.csl"
 #+bibliography: references.bib
 
-#+ATTR_HTML: :width 300px
+#+ATTR_HTML: :width 400px
 #+ATTR_HTML: :align center
 #+ATTR_ORG: :align center
 #+CAPTION: Output of FEniCSx solver captured using raymarching in ParaView.
 #+NAME: fig:intro
-[[file:intro_clear.png]]
+[[file:../../../assets/img/fea_intro_purp.png]]
 
 Github link: [[https://github.com/mtrpdx/aurora][https://github.com/mtrpdx/aurora]]
 
@@ -18,7 +18,7 @@ NOTICE: This article is a work-in-progress as I experiment with Org mode > LaTeX
 
 * Introduction
 
-I recently got in the habit of browsing the [[https://www.darpa.mil/work-with-us/opportunities][DARPA solicitations]] from time to time. I came across a solicitation for a study on the feasibility of ``Acoustic-based UAS Rainbow Oscillation Refraction Architecture," and I became intrigued. There was a link to a 2025 Science article [cite:@christiansen2025morphogenesis] that describes a method of designing homogeneous 3D structures for desired acoustic properties through the power of applied topological optimization techniques. Christiansen et al. show that they were able to use these designed structures to separate wide-bandwidth noise into spatially-separated frequency bands at above-unity efficiency. The DARPA solicitation asked if this technique could be applied to drone noise, and specifically, could it be used to design structures or materials that could help drones communicate information like position or velocity with each other passively through the spatial separation and direction of their broadband propeller noise? 
+I developed a habit of browsing the [[https://www.darpa.mil/work-with-us/opportunities][DARPA solicitations]] from time to time. I came across a solicitation for a study on the feasibility of ``Acoustic-based UAS Rainbow Oscillation Refraction Architecture," and I became intrigued. There was a link to a 2025 Science article [cite:@christiansen2025morphogenesis] that describes a method of designing homogeneous 3D structures for desired acoustic properties through the power of applied topological optimization techniques. Christiansen et al. show that they were able to use these designed structures to separate wide-bandwidth noise into spatially-separated frequency bands at above-unity efficiency. The DARPA solicitation asked if this technique could be applied to drone noise, and specifically, could it be used to design structures or materials that could help drones communicate information like position or velocity with each other passively through the spatial separation and direction of their broadband propeller noise? 
 
 * Methodology
 
@@ -36,7 +36,7 @@ Unfortunately, what might have been a fairly straightforward simulation in COMSO
 #+ATTR_ORG: :align center
 #+CAPTION: ARE design bitmap
 #+NAME:    fig:ARE-design
-[[file:./ARE_Design_BITMAP.png]]
+[[file:../../../assets/img/ARE_Design_BITMAP.png]]
 
 To fully reproduce the results in [cite:@christiansen2025morphogenesis], I have to solve both the 2D optimization and the acoustic finite element simulation problems, so this is easily broken down into two tasks, with multiple ways to accomplish each:
 
