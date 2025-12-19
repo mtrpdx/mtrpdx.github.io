@@ -1,2 +1,3 @@
 #+TITLE: Posts
 
+- [[file:fea/open_source_finite_element_analysis.org][Open Source Tools for Finite Element Analysis]] - Martín Rodriguez · December 18, 2025
