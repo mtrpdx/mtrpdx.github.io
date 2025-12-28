@@ -489,7 +489,7 @@
               :time-stamp-file nil)
             '("mtrpdx:assets"
               :base-directory "./assets"
-              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|svg\\|map\\|csl"
+              :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|woff2\\|ttf\\|svg\\|map\\|csl\\|org"
               :publishing-directory "./public/assets"
               :recursive t
               :publishing-function org-publish-attachment)

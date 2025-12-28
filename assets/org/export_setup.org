@@ -1,4 +1,4 @@
-#+cite_export: csl "../assets/csl/ieee.csl"
+#+cite_export: csl "../../../assets/csl/ieee.csl"
 #+with-author: t
 #+with-date: t
 #+with-toc: headlines 1
