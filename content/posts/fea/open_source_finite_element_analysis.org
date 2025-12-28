@@ -2,11 +2,11 @@
 #+author: Martín Rodriguez
 #+date: <2025-12-18 Thu>
 #+setupfile: "../../../assets/org/export_setup.org"
-#+cite_export: csl "../../../assets/csl/ieee.csl"
 #+bibliography: "./references.bib"
 
-#+ATTR_HTML: :width 300px
+#+ATTR_HTML: :width 350px
 #+ATTR_HTML: :align center
+#+ATTR_ORG: :width 350px
 #+ATTR_ORG: :align center
 #+CAPTION: Output of FEniCSx solver captured using raymarching in ParaView.
 #+NAME: fig:intro
