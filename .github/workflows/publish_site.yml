@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         
       - name: Setup Pages
         id: pages
@@ -39,7 +39,7 @@ jobs:
         id: emacs
         uses: purcell/setup-emacs@master
         with:
-          version: 27.2
+          version: 29.4
           
       - name: Load emacs and build site
         id: build
