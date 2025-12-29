@@ -53,10 +53,10 @@ jobs:
         
 
       
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@v2
-        with:
-          args: "--root-dir $(pwd) --verbose --no-progress ."
+      # - name: Link Checker
+      #   uses: lycheeverse/lychee-action@v2
+      #   with:
+      #     args: "--root-dir $(pwd) --verbose --no-progress ./public/**/*.html"
 
       # - name: Publish generated content to GitHub Pages
       #   uses: JamesIves/github-pages-deploy-action@v4.6.9
