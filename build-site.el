@@ -145,7 +145,6 @@
    (when (eq backend 'html)
      (mtr/embed-video path))))
 
-(setq org-latex-prefer-user-labels t)
 
 ;; Customize the HTML output
 (setq org-html-validation-link nil
@@ -414,6 +413,7 @@
       org-export-with-tags 'not-in-toc
       org-html-htmlize-output-type 'css
       org-html-prefer-user-labels t
+      org-latex-prefer-user-labels t
       org-html-link-home mtr/site-url
       org-html-link-use-abs-url t
       org-html-link-org-files-as-html t
