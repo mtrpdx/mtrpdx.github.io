@@ -1156,7 +1156,7 @@ a.button.wide {
 /*
  * Support for different screen sizes
  */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   html {
     font-size: 14px;
   }
@@ -1234,7 +1234,6 @@ a.button.wide {
     display: block;
     flex: 1 1 auto;
     max-width: 100%;
-    width: 100%;
   }
   .row .column:not(:last-child) {
     margin-right: 10px;
