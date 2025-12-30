@@ -392,7 +392,7 @@ html {
 }
 
 img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 
@@ -404,7 +404,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: auto;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -445,7 +445,7 @@ b {
 }
 
 blockquote {
-  background-color: rgba(102, 92, 92, 0.2);
+  background-color: #f3f3f3;
   font-style: italic;
   border: 1px solid;
   border-radius: 0px;
