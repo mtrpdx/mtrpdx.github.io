@@ -475,8 +475,7 @@ dd {
 }
 
 .nav {
-  display: grid;
-  grid-template-columns: 1fr max-content;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -798,6 +797,7 @@ strong {
 }
 
 .site-post-meta {
+  text-align: center;
   color: #AAA;
 }
 
